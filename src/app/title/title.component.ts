@@ -1,4 +1,4 @@
-import { DaytimeService } from './../daytime.service';
+import { DaytimeService } from '../Services/daytime.service';
 import { Component, OnInit } from '@angular/core';
 import { TimeOfDay } from 'Enums';
 
