@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { BirthDayRecord } from './../Models/BirthDayRecord';
+import { BirthdayService } from './../Services/birthday.service';
+import { Component, OnInit, Input } from '@angular/core';
 import { DaytimeService } from '../Services/daytime.service';
-import { WebstorageService } from '../Services/webstorage.service';
-import { BirthDayRecord } from '../Models/BirthDayRecord';
 
 @Component({
   selector: 'app-birthday-reminder',
@@ -10,15 +10,15 @@ import { BirthDayRecord } from '../Models/BirthDayRecord';
 })
 export class BirthdayReminderComponent implements OnInit {
   
+  @Input() closable : boolean;
   private todaysBirthdays: Array<BirthDayRecord> = [];
   
-  constructor(private dayTimeService : DaytimeService, private storageService : WebstorageService) {
-     
-  }
+  constructor(private dayTimeService : DaytimeService, private birthdayService : BirthdayService) { }
   
   ngOnInit() {  
+
     let today = this.dayTimeService.getDate();
-    let birthdays= this.storageService.get("birthdays");
+    let birthdays : Array<BirthDayRecord> = this.birthdayService.getBirthdays();
     this.todaysBirthdays = birthdays.filter((birthday) => birthday.date == today);
   }
 }

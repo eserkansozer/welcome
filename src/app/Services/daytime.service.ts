@@ -26,6 +26,6 @@ export class DaytimeService {
   }
 
   getDate():String{
-    return new Date().toDateString();
+    return new Date().toISOString().split('T')[0];
   }
 }

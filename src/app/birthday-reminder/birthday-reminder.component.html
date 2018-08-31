@@ -2,7 +2,7 @@
   <ul *ngFor="let bDay of todaysBirthdays">
     <li><strong>Birthday:</strong> {{bDay.name}}!</li>
   </ul>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close" [hidden]="!closable">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
