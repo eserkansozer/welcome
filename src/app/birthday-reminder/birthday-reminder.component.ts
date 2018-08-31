@@ -6,8 +6,7 @@ import { BirthDayRecord } from '../Models/BirthDayRecord';
 @Component({
   selector: 'app-birthday-reminder',
   templateUrl: './birthday-reminder.component.html',
-  styleUrls: ['./birthday-reminder.component.css'],
-  providers: [WebstorageService]
+  styleUrls: ['./birthday-reminder.component.css']
 })
 export class BirthdayReminderComponent implements OnInit {
   

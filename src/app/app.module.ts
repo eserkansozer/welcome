@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { TitleComponent } from './title/title.component';
 import { MainComponent } from './main/main.component';
 import { BirthdayReminderComponent } from './birthday-reminder/birthday-reminder.component';
+import { WebstorageService } from './Services/webstorage.service';
+import { DaytimeService } from './Services/daytime.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,10 @@ import { BirthdayReminderComponent } from './birthday-reminder/birthday-reminder
     BrowserModule,
     StorageServiceModule
   ],
-  providers: [],
+  providers: [
+    WebstorageService, 
+    DaytimeService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

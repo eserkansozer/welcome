@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { TimeOfDay } from 'Enums';
+import { TimeOfDay } from '../Enums';
 
 @Injectable()
 export class DaytimeService {

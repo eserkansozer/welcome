@@ -1,12 +1,11 @@
 import { DaytimeService } from '../Services/daytime.service';
 import { Component, OnInit } from '@angular/core';
-import { TimeOfDay } from 'Enums';
+import { TimeOfDay } from '../Enums';
 
 @Component({
   selector: 'app-title',
   templateUrl: './title.component.html',
-  styleUrls: ['./title.component.css'],
-  providers: [DaytimeService]
+  styleUrls: ['./title.component.css']
 })
 export class TitleComponent {
 
