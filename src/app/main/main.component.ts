@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent {
-  
+  settingsPaneExpanded : Boolean;
+
   constructor(private dayTimeService: DaytimeService) { }
 
   getDesktopImageUrl() : string {
@@ -23,5 +24,9 @@ export class MainComponent {
       case TimeOfDay.Evening:
         return "https://images.pexels.com/photos/414144/pexels-photo-414144.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260";
     }
+  }
+
+  onSettingsClicked(){
+    this.settingsPaneExpanded = !this.settingsPaneExpanded;
   }
 }

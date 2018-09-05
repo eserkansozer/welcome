@@ -1,23 +1,105 @@
-<div class="form-container">
-  <form #f="ngForm" (ngSubmit)="submit(f.value)">
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input ngModel #name="ngModel" type="text" class="form-control" id="name" name="name" required minlength="3" />
-      <div class="alert alert-danger" *ngIf="name.touched && !name.valid">
-        <div *ngIf="name.errors.required">Name field is required.</div>
-        <div *ngIf="name.errors.minlength">Name field should be at least 3 characters.</div>
-      </div>
-    </div>
-  
-    <div class="form-group">
-      <label for="category">Date</label>
-      <input ngModel #date="ngModel" type="date" class="form-control" id="date" name="date" required />
-      <div class="alert alert-danger" *ngIf="date.touched && !date.valid">
-          <div *ngIf="date.errors.required">Date field is required.</div>
-        </div>
+<div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Birthdays
+        </button>
+      </h5>
     </div>
 
-    <button class="btn btn-primary" [disabled]="f.invalid">Submit</button>
-  </form>
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        <!-- Edit   -->
+        <div class="form-container" *ngIf="mode == 'edit'">
+          <form #f="ngForm" (ngSubmit)="onUpdate()">
+            <div class="row">
+              <div class="col">
+                <label for="name">Name</label>
+                <input [(ngModel)]="bDayOnEdit.name" #name="ngModel" type="text" class="form-control form-control-sm" id="name" name="name" required minlength="3"
+                />
+                <div class="alert alert-danger" *ngIf="name.touched && !name.valid">
+                  <div *ngIf="name.errors.required">Name field is required.</div>
+                  <div *ngIf="name.errors.minlength">Name field should be at least 3 characters.</div>
+                </div>
+              </div>
+
+              <div class="col">
+                <label for="category">Date</label>
+                <input [(ngModel)]="bDayOnEdit.date"  #date="ngModel" type="date" class="form-control form-control-sm" id="date" name="date" required />
+                <div class="alert alert-danger" *ngIf="date.touched && !date.valid">
+                  <div *ngIf="date.errors.required">Date field is required.</div>
+                </div>
+              </div>
+
+              <div class="col">
+                <input ngModel #id="ngModel" type="hidden" class="form-control  form-control-sm" id="id" name="id" />
+                <button class="btn btn-primary submit" [disabled]="f.invalid">Save</button>
+              </div>
+
+            </div>
+          </form>
+        </div>
+        <!-- Edit   -->
+        <!-- List -->
+        <div class="form-container" *ngIf="mode == 'list'">
+          <table class="table table-striped">
+            <tr *ngFor="let bDay of allBirthDays">
+              <td>{{bDay.name}}</td>              
+              <td>{{bDay.date | date: locale:'en-UK'}}</td>
+              <td style="float: right"><button (click)="onEdit(bDay.id)"><span class="fas fa-edit"></span> </button><button (click)="onDelete(bDay.id)"><span class="fas fa-minus-circle"></span> </button></td>
+            </tr>
+          </table>
+
+          <form #f="ngForm" (ngSubmit)="onAdd(f.value)">
+              <div class="row">
+                <div class="col">
+                  <label for="name">Name</label>
+                  <input ngModel #name="ngModel" type="text" class="form-control  form-control-sm" id="name" name="name" required minlength="3"
+                  />
+                  <div class="alert alert-danger" *ngIf="name.touched && !name.valid">
+                    <div *ngIf="name.errors.required">Name field is required.</div>
+                    <div *ngIf="name.errors.minlength">Name field should be at least 3 characters.</div>
+                  </div>
+                </div>
   
+                <div class="col">
+                  <label for="category">Date</label>
+                  <input ngModel #date="ngModel" type="date" class="form-control  form-control-sm" id="date" name="date" required />
+                  <div class="alert alert-danger" *ngIf="date.touched && !date.valid">
+                    <div *ngIf="date.errors.required">Date field is required.</div>
+                  </div>
+                </div>
+  
+                <div class="col">
+                  <button class="btn btn-primary submit" [disabled]="f.invalid">Add</button>
+                </div>
+  
+              </div>
+            </form>
+        </div>
+        <!-- List -->
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+          aria-controls="collapseTwo">
+          Collapsible Group Item #2
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
+        non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
+        aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+        craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+        labore sustainable VHS. 
+      </div>
+    </div>
+  </div>
 </div>

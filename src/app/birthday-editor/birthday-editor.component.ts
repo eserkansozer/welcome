@@ -1,6 +1,6 @@
 import { BirthdayService } from './../Services/birthday.service';
 import { BirthDayRecord } from './../Models/BirthDayRecord';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-birthday-editor',
@@ -9,13 +9,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BirthdayEditorComponent implements OnInit {
 
+  @Input() mode : string;
+
+  allBirthDays : Array<BirthDayRecord>;
+  bDayOnEdit : BirthDayRecord;
+
   constructor(private birthdayService: BirthdayService) { }
 
   ngOnInit() {
+     this.allBirthDays = this.birthdayService.getBirthdays();
   }
 
-  submit(newBday : BirthDayRecord) {
+  onAdd(newBday : BirthDayRecord) {
     this.birthdayService.addBirthday(newBday);
+    this.allBirthDays = this.birthdayService.getBirthdays();
   }
 
+  onDelete(bid: Number)
+  {
+    this.birthdayService.removeBirthday(bid);
+    this.allBirthDays = this.birthdayService.getBirthdays();
+  }
+
+  onEdit(bid: Number)
+  {
+    this.bDayOnEdit = this.birthdayService.getBirthday(bid);
+    console.log(this.bDayOnEdit);
+    this.mode = 'edit';
+  }
+
+  onUpdate() {
+    this.birthdayService.updateBirthday(this.bDayOnEdit);
+    this.allBirthDays = this.birthdayService.getBirthdays();
+    this.mode = 'list';
+  }
 }

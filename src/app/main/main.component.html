@@ -1,5 +1,11 @@
-<div [style.backgroundImage]="'url('+getDesktopImageUrl()+')'">
+<div class="settings-panel" [hidden]="!settingsPaneExpanded">
+    <app-birthday-editor [mode]="'list'"></app-birthday-editor>
+</div>
+<div class="main" [style.backgroundImage]="'url('+getDesktopImageUrl()+')'">
+    <div class="cog-container">
+        <i class="fas fa-cog fa-2x" (click)="onSettingsClicked()"></i>
+    </div>
     <app-birthday-reminder [closable]="true"></app-birthday-reminder>
     <app-title></app-title>
 </div>
-<app-birthday-editor></app-birthday-editor>
+

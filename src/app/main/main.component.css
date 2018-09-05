@@ -1,4 +1,10 @@
-div{
+div.main{
     height: 1000px;
     background-size: cover;
+}
+
+.cog-container{
+    float: right; 
+    color: white; 
+    padding: 10px;
 }
