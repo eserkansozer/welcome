@@ -1,6 +1,6 @@
 import { WebstorageService } from './../Services/webstorage.service';
 import { WeatherService } from './../Services/weather.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, SimpleChange } from '@angular/core';
 import { WeatherRecord } from '../Models/WeatherRecord';
 
 @Component({
@@ -9,6 +9,8 @@ import { WeatherRecord } from '../Models/WeatherRecord';
   styleUrls: ['./weather-forecast.component.css']
 })
 export class WeatherForecastComponent implements OnInit {
+
+  @Input() refreshTriggerInput;
 
   weather: WeatherRecord;
   constructor(private weatherService: WeatherService, private storageService : WebstorageService) { }
@@ -22,6 +24,11 @@ export class WeatherForecastComponent implements OnInit {
     }
   }
 
+  ngOnChanges() 
+  {
+    this.ngOnInit();
+  }
+  
   mapJsonToWeatherRecord(json)
   {    
     this.weather = new WeatherRecord(Math.ceil(json.main.temp),json.name,json.weather[0].description, json.weather[0].icon);   

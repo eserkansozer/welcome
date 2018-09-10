@@ -1,6 +1,7 @@
 import { BirthdayService } from './../Services/birthday.service';
 import { BirthDayRecord } from './../Models/BirthDayRecord';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { timeout } from 'q';
 
 @Component({
   selector: 'app-birthday-editor',
@@ -10,6 +11,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class BirthdayEditorComponent implements OnInit {
 
   @Input() mode : string;
+  @Output() refresh = new EventEmitter<string>();
 
   allBirthDays : Array<BirthDayRecord>;
   bDayOnEdit : BirthDayRecord;
@@ -23,12 +25,14 @@ export class BirthdayEditorComponent implements OnInit {
   onAdd(newBday : BirthDayRecord) {
     this.birthdayService.addBirthday(newBday);
     this.allBirthDays = this.birthdayService.getBirthdays();
+    this.refresh.emit("birthday");
   }
 
   onDelete(bid: Number)
   {
     this.birthdayService.removeBirthday(bid);
     this.allBirthDays = this.birthdayService.getBirthdays();
+    this.refresh.emit("birthday");
   }
 
   onEdit(bid: Number)
@@ -41,5 +45,6 @@ export class BirthdayEditorComponent implements OnInit {
     this.birthdayService.updateBirthday(this.bDayOnEdit);
     this.allBirthDays = this.birthdayService.getBirthdays();
     this.mode = 'list';
+    this.refresh.emit("birthday"); 
   }
 }

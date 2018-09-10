@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent {
   settingsPaneExpanded : Boolean;
+  refreshToggle : Boolean = false;
 
   constructor(private dayTimeService: DaytimeService) { }
 
@@ -28,6 +29,9 @@ export class MainComponent {
 
   onSettingsClicked(){
     this.settingsPaneExpanded = !this.settingsPaneExpanded;
-    console.log(this.settingsPaneExpanded);
+  }
+
+  onSettingsChanged(){
+    this.refreshToggle = !this.refreshToggle;
   }
 }

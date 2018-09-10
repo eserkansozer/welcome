@@ -10,7 +10,7 @@
 
     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
-        <app-birthday-editor [mode]="'list'"></app-birthday-editor>    
+        <app-birthday-editor [mode]="'list'" (refresh)="onSettingsChanged($event)"></app-birthday-editor>    
       </div>
     </div>
   </div>
@@ -25,7 +25,7 @@
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
       <div class="card-body">
-        <app-weather-editor></app-weather-editor>
+        <app-weather-editor (refresh)="onSettingsChanged($event)"></app-weather-editor>
       </div>
     </div>
   </div>

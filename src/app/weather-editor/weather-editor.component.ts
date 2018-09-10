@@ -1,7 +1,6 @@
-import { WebStorageService } from 'angular-webstorage-service';
 import { WeatherCityRecord } from './../Models/WeatherCityRecord';
 import { WeatherCityService } from './../Services/weather-city.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { WebstorageService } from '../Services/webstorage.service';
 
 @Component({
@@ -10,6 +9,8 @@ import { WebstorageService } from '../Services/webstorage.service';
   styleUrls: ['./weather-editor.component.css'],
 })
 export class WeatherEditorComponent implements OnInit {
+
+  @Output() refresh = new EventEmitter<string>();
 
   weatherCityList:Array<WeatherCityRecord>;
   homeCityId: number;
@@ -30,5 +31,6 @@ export class WeatherEditorComponent implements OnInit {
 
   onCitySelect(){
     this.storageService.set('homeCityId', this.homeCityId);
+    this.refresh.emit("weather");
   }
 }

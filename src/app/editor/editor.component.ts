@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-editor',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditorComponent implements OnInit {
 
+  @Output() refresh = new EventEmitter<string>();
+  
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSettingsChanged(){
+    this.refresh.emit();
   }
 
 }

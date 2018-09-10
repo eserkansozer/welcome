@@ -11,6 +11,8 @@ import { DaytimeService } from '../Services/daytime.service';
 export class BirthdayReminderComponent implements OnInit {
   
   @Input() closable : boolean;
+  @Input() refreshTriggerInput;
+  
   private todaysBirthdays: Array<BirthDayRecord> = [];
   
   constructor(private dayTimeService : DaytimeService, private birthdayService : BirthdayService) { }
@@ -20,6 +22,11 @@ export class BirthdayReminderComponent implements OnInit {
     let today = this.dayTimeService.getDate();
     let birthdays : Array<BirthDayRecord> = this.birthdayService.getBirthdays();
     this.todaysBirthdays = birthdays.filter((birthday) => birthday.date == today);
+  }
+
+  ngOnChanges() 
+  {
+    this.ngOnInit();
   }
 }
 
