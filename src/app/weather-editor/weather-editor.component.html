@@ -1,0 +1,10 @@
+<div class="form-group">
+  <label for="city">City</label>
+  <select [(ngModel)]="homeCityId" #city="ngModel" name="city" id="city" class="form-control form-control-sm" (change)="onCitySelect()" required>
+    <option value="" selected>Please select</option>
+    <option *ngFor="let w of weatherCityList" [value]="w.id">{{w.name}}</option>
+  </select>
+  <div class="alert alert-danger" *ngIf="city.dirty && !city.valid">
+      <div *ngIf="city.errors.required">City field is required.</div>
+    </div>
+</div>

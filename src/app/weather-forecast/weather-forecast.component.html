@@ -1,0 +1,10 @@
+<div class="alert alert-secondary alert-dismissible fade show" role="alert">
+  <div *ngIf="weather">
+    <strong>{{weather.city}}:</strong> {{weather.temp}}°C, {{weather.description}}
+    <img src="http://openweathermap.org/img/w/{{weather.icon}}.png"/>
+  </div>
+  <div *ngIf="!weather">
+      <strong>Weather</strong>
+      <p>Please select a city in Settings tab</p>
+  </div>
+</div>

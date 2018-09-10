@@ -1,6 +1,10 @@
 .alert{
-    width: 30%;
+    width: 20%;
     position: absolute;
-    margin-top: 20px;
-    margin-left: 20px;
+    margin-top: 250px;
+    margin-left: 60px;
+}
+
+li{
+    list-style-type: none
 }

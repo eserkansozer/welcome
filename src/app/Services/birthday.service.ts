@@ -19,7 +19,6 @@ export class BirthdayService {
   }
 
   addBirthday(newBDay: BirthDayRecord){
-    debugger;
     let birthdays = (this.storageService.get(this.KEY) as Array<BirthDayRecord>) || new Array<BirthDayRecord>();
     if(birthdays.length == 0)
     {

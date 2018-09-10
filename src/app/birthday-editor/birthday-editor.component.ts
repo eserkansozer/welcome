@@ -34,7 +34,6 @@ export class BirthdayEditorComponent implements OnInit {
   onEdit(bid: Number)
   {
     this.bDayOnEdit = this.birthdayService.getBirthday(bid);
-    console.log(this.bDayOnEdit);
     this.mode = 'edit';
   }
 

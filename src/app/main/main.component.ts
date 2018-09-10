@@ -28,5 +28,6 @@ export class MainComponent {
 
   onSettingsClicked(){
     this.settingsPaneExpanded = !this.settingsPaneExpanded;
+    console.log(this.settingsPaneExpanded);
   }
 }

@@ -7,7 +7,9 @@ h1{
 
 h1.morning
 {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Arial, Helvetica, sans-serif;
+    left: 90px;
+    top: 60px;
 }
 
 h1.afternoon
