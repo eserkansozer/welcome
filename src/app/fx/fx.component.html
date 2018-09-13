@@ -1,0 +1,10 @@
+<div class="alert alert-secondary alert-dismissible fade show" role="alert">
+  <div *ngIf="fx">
+    {{fx.fromCurrency}}/{{fx.toCurrency}}: <strong>{{fx.rate}}</strong> 
+    <img src="http://openweathermap.org/img/w/{{weather.icon}}.png"/>
+  </div>
+  <div *ngIf="!fx">
+      <strong>FX</strong>
+      <p>Please select a currency exchange in Settings tab</p>
+  </div>
+</div>

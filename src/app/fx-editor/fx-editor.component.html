@@ -1,0 +1,27 @@
+<div class="form-group">
+  <label for="from">From</label>
+  <select [(ngModel)]="fxOnEdit.fromCurrency" #from="ngModel" name="from" id="from" class="form-control form-control-sm" required>
+    <option value="" selected>Please select</option>
+    <option value="GBP">GBP</option>
+    <option value="EUR">EUR</option>
+    <option value="USD">USD</option>
+    <option value="TRY">TRY</option>
+  </select>
+  <div class="alert alert-danger" *ngIf="from.dirty && !from.valid">
+    <div *ngIf="from.errors.required">Currency is required.</div>
+  </div>
+  <label for="to">To</label>
+  <select [(ngModel)]="fxOnEdit.toCurrency" #to="ngModel" name="to" id="to" class="form-control form-control-sm" required>
+    <option value="" selected>Please select</option>
+    <option value="GBP">GBP</option>
+    <option value="EUR">EUR</option>
+    <option value="USD">USD</option>
+    <option value="TRY">TRY</option>
+  </select>
+  <div class="alert alert-danger" *ngIf="to.dirty && !to.valid">
+      <div *ngIf="to.errors.required">Currency is required.</div>
+  </div>
+  <div style="padding-top:10px">
+    <button class="btn btn-primary form-control" [disabled]="from.invalid || to.invalid" (click)="onSave()">Save</button>
+  </div>
+</div>

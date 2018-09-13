@@ -9,3 +9,11 @@ div.main{
     padding: 10px;
     cursor: pointer;
 }
+
+.about-link{
+    float: right;
+    padding: 10px;
+    bottom: 15px;
+    right: 15px;
+    position: absolute;
+}

@@ -1,6 +1,6 @@
 import { WebstorageService } from './../Services/webstorage.service';
 import { WeatherService } from './../Services/weather.service';
-import { Component, OnInit, Input, SimpleChange } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { WeatherRecord } from '../Models/WeatherRecord';
 
 @Component({
@@ -29,7 +29,7 @@ export class WeatherForecastComponent implements OnInit {
     this.ngOnInit();
   }
   
-  mapJsonToWeatherRecord(json)
+  mapJsonToWeatherRecord(json: any)
   {    
     this.weather = new WeatherRecord(Math.ceil(json.main.temp),json.name,json.weather[0].description, json.weather[0].icon);   
   }

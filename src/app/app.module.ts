@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { StorageServiceModule} from 'angular-webstorage-service';
 import { FormsModule } from '@angular/forms';
 import { HttpModule} from '@angular/http';
+import { RouterModule} from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { TitleComponent } from './title/title.component';
@@ -20,6 +21,11 @@ import { WeatherForecastComponent } from './weather-forecast/weather-forecast.co
 import { WeatherEditorComponent } from './weather-editor/weather-editor.component';
 import { EditorComponent } from './editor/editor.component';
 import { WeatherCityService } from './Services/weather-city.service';
+import { CreditsComponent } from './credits/credits.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { FxComponent } from './fx/fx.component';
+import { FxService } from './Services/fx.service';
+import { FxEditorComponent } from './fx-editor/fx-editor.component';
 
 @NgModule({
   declarations: [
@@ -30,13 +36,22 @@ import { WeatherCityService } from './Services/weather-city.service';
     BirthdayEditorComponent,
     WeatherForecastComponent,
     WeatherEditorComponent,
-    EditorComponent
+    EditorComponent,
+    CreditsComponent,
+    NotFoundComponent,
+    FxComponent,
+    FxEditorComponent
   ],
   imports: [
     BrowserModule,
     StorageServiceModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([
+      {path:'', component: MainComponent},
+      {path:'about', component: CreditsComponent},
+      {path:'**', component: NotFoundComponent}]
+    )
   ],
   providers: [
     WebstorageService, 
@@ -45,6 +60,7 @@ import { WeatherCityService } from './Services/weather-city.service';
     DataApiService,
     WeatherService,
     WeatherCityService,
+    FxService,
     {provide: ErrorHandler, useClass: AppErrorHandler}//replacing standard error handler with custom global error handler
   ],
   bootstrap: [AppComponent]
