@@ -1,5 +1,5 @@
 import { FxService } from './../Services/fx.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { WebstorageService } from '../Services/webstorage.service';
 import { FxRecord } from '../Models/FxRecord';
 
@@ -16,20 +16,24 @@ export class FxComponent implements OnInit {
   constructor(private fxService: FxService, private storageService : WebstorageService) { }
 
   ngOnInit() {
-    let fxConfig = this.storageService.get('fx');
+    let fxConfig = this.storageService.get('fx') as FxRecord;
     if(fxConfig)
     {
-      this.fxService.getFX(fxConfig.fromCurrency, fxConfig.toCurrency)
-      .subscribe(json => this.mapJsonToFxRecord(json));
+      this.fxService.getFX()
+      .subscribe(json => this.mapJsonToFxRecord(json, fxConfig));
     }
   }
 
-  mapJsonToFxRecord(json: any): any {
-    this.fx = new FxRecord(json.base, Object.keys(json.rates)[0], json.rates[Object.keys(json.rates)[0]]);
+  mapJsonToFxRecord(json: any, fxConfig: FxRecord) {
+    let rate =  json.rates[fxConfig.toCurrency] / json.rates[fxConfig.fromCurrency];
+    this.fx = new FxRecord(fxConfig.fromCurrency, fxConfig.toCurrency, rate);
   }
 
-  ngOnChanges() 
+  ngOnChanges(changes: SimpleChanges) 
   {
-    this.ngOnInit();
+    if(!changes.refreshTriggerInput.firstChange)
+    {
+      this.ngOnInit();
+    }
   }
 }

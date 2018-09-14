@@ -31,7 +31,7 @@ export class MainComponent {
     this.settingsPaneExpanded = !this.settingsPaneExpanded;
   }
 
-  onSettingsChanged(){
+  onRefreshPanes(){
     this.refreshToggle = !this.refreshToggle;
   }
 }

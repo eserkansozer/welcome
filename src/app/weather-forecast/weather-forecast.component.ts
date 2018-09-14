@@ -1,6 +1,6 @@
 import { WebstorageService } from './../Services/webstorage.service';
 import { WeatherService } from './../Services/weather.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { WeatherRecord } from '../Models/WeatherRecord';
 
 @Component({
@@ -24,9 +24,12 @@ export class WeatherForecastComponent implements OnInit {
     }
   }
 
-  ngOnChanges() 
+  ngOnChanges(changes: SimpleChanges) 
   {
-    this.ngOnInit();
+    if(!changes.refreshTriggerInput.firstChange)
+    {
+      this.ngOnInit();
+    }
   }
   
   mapJsonToWeatherRecord(json: any)

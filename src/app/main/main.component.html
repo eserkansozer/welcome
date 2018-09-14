@@ -1,5 +1,5 @@
 <div class="settings-panel" [hidden]="!settingsPaneExpanded">
-    <app-editor (refresh)="onSettingsChanged($event)"></app-editor>
+    <app-editor (editorRefresh)="onRefreshPanes($event)"></app-editor>
 </div>
 <div class="main" [style.backgroundImage]="'url('+getDesktopImageUrl()+')'">
     <div class="cog-container">

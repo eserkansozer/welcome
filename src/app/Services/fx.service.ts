@@ -1,19 +1,19 @@
 import { DataApiService } from './data-api.service';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { environment } from 'environments/environment';
 
 @Injectable()
 export class FxService extends DataApiService{
 
   constructor(http: Http) {
-    super('https://api.exchangeratesapi.io/latest', http);
+    super('http://data.fixer.io/api/latest', http);
    }
 
-   getFX(fromCurrency: string, toCurrency: string)
+   getFX()
    {
      let parameters : Array<{key:string, value: any}> = [];
-     parameters.push({key:'base', value: fromCurrency})
-     parameters.push({key:'symbols', value: toCurrency});
+     parameters.push({key:'access_key', value: environment.fxApiId});
 
      return this.getByParameters(parameters);        
    }

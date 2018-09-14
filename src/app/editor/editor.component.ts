@@ -7,7 +7,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class EditorComponent implements OnInit {
 
-  @Output() refresh = new EventEmitter<string>();
+  @Output() editorRefresh = new EventEmitter<string>();
   
   constructor() { }
 
@@ -15,7 +15,7 @@ export class EditorComponent implements OnInit {
   }
 
   onSettingsChanged(){
-    this.refresh.emit();
+    this.editorRefresh.emit();
   }
 
 }
