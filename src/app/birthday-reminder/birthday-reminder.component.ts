@@ -1,6 +1,6 @@
 import { BirthDayRecord } from './../Models/BirthDayRecord';
 import { BirthdayService } from './../Services/birthday.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { DaytimeService } from '../Services/daytime.service';
 
 @Component({
@@ -18,15 +18,17 @@ export class BirthdayReminderComponent implements OnInit {
   constructor(private dayTimeService : DaytimeService, private birthdayService : BirthdayService) { }
   
   ngOnInit() {  
-
     let today = this.dayTimeService.getDate();
     let birthdays : Array<BirthDayRecord> = this.birthdayService.getBirthdays();
     this.todaysBirthdays = birthdays.filter((birthday) => birthday.date == today);
   }
 
-  ngOnChanges() 
+  ngOnChanges(changes: SimpleChanges) 
   {
-    this.ngOnInit();
+    if(!changes.refreshTriggerInput.firstChange)
+    {
+      this.ngOnInit();
+    }
   }
 }
 

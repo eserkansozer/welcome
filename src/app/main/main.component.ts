@@ -1,6 +1,6 @@
 import { TimeOfDay } from '../Enums';
 import { DaytimeService } from '../Services/daytime.service';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-main',
@@ -8,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent {
-  settingsPaneExpanded : Boolean;
-  refreshToggle : Boolean = false;
+  settingsPaneExpanded : Boolean =false;
+  weatherRefreshToggle : Boolean = false;
+  birthdayRefreshToggle : Boolean = false;
+  fxRefreshToggle : Boolean = false;
 
   constructor(private dayTimeService: DaytimeService) { }
 
@@ -31,7 +33,17 @@ export class MainComponent {
     this.settingsPaneExpanded = !this.settingsPaneExpanded;
   }
 
-  onRefreshPanes(){
-    this.refreshToggle = !this.refreshToggle;
+  onRefreshPanes(event){
+    switch (event) {
+      case "birthday":
+        this.birthdayRefreshToggle = !this.birthdayRefreshToggle;
+        break;
+      case "weather":
+        this.weatherRefreshToggle = !this.weatherRefreshToggle;
+        break;
+      case "fx":
+        this.fxRefreshToggle = !this.fxRefreshToggle;
+        break;
+    }
   }
 }

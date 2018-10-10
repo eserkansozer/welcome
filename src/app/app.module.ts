@@ -1,5 +1,4 @@
-import { WeatherService } from './Services/weather.service';
-import { AppErrorHandler } from './common/app-error-handler';
+
 import { ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -26,6 +25,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { FxComponent } from './fx/fx.component';
 import { FxService } from './Services/fx.service';
 import { FxEditorComponent } from './fx-editor/fx-editor.component';
+import { WeatherService } from './Services/weather.service';
+import { AppErrorHandler } from './common/app-error-handler';
 
 @NgModule({
   declarations: [

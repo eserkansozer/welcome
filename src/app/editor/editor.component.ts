@@ -14,8 +14,8 @@ export class EditorComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSettingsChanged(){
-    this.editorRefresh.emit();
+  onSettingsChanged(event){
+    this.editorRefresh.emit(event);
   }
 
 }
