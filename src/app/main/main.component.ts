@@ -1,14 +1,28 @@
 import { TimeOfDay } from '../Enums';
 import { DaytimeService } from '../Services/daytime.service';
-import { Component } from '@angular/core';
+import { Component, trigger, state, style, transition, animate } from '@angular/core';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css']
+  styleUrls: ['./main.component.css'],
+  animations: [
+    trigger('expansionState', [
+      state('inactive', style({
+        display: 'none',
+        opacity: 0
+      })),
+      state('active', style({        
+        opacity: 1,
+        display: 'block',
+      })),
+      transition('inactive => active', animate('500ms ease-in')),
+      transition('active => inactive', animate('500ms ease-in'))
+    ])
+  ]
 })
 export class MainComponent {
-  settingsPaneExpanded : Boolean =false;
+  settingsPaneExpanded : string = 'inactive';
   weatherRefreshToggle : Boolean = false;
   birthdayRefreshToggle : Boolean = false;
   fxRefreshToggle : Boolean = false;
@@ -30,7 +44,7 @@ export class MainComponent {
   }
 
   onSettingsClicked(){
-    this.settingsPaneExpanded = !this.settingsPaneExpanded;
+    this.settingsPaneExpanded = this.settingsPaneExpanded == 'active' ? 'inactive' : 'active';
   }
 
   onRefreshPanes(event){

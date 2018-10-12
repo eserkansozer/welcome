@@ -1,4 +1,4 @@
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -48,6 +48,7 @@ import { AppErrorHandler } from './common/app-error-handler';
     StorageServiceModule,
     FormsModule,
     HttpModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot([
       {path:'', component: MainComponent},
       {path:'about', component: CreditsComponent},
