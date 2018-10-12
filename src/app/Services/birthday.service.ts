@@ -1,11 +1,11 @@
 import { BirthDayRecord } from './../Models/BirthDayRecord';
-import { WebstorageService } from './webstorage.service';
+import { LocalStorageService } from './webstorage.service';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class BirthdayService {
   KEY = "birthdays";
-  constructor(private storageService : WebstorageService) { }
+  constructor(private storageService : LocalStorageService) { }
 
   getBirthdays(): Array<BirthDayRecord>{
     let birthdays = (this.storageService.get(this.KEY) as Array<BirthDayRecord>) || new Array<BirthDayRecord>();

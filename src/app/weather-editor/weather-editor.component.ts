@@ -1,7 +1,7 @@
 import { WeatherCityRecord } from './../Models/WeatherCityRecord';
 import { WeatherCityService } from './../Services/weather-city.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { WebstorageService } from '../Services/webstorage.service';
+import { LocalStorageService } from '../Services/webstorage.service';
 
 @Component({
   selector: 'app-weather-editor',
@@ -15,7 +15,7 @@ export class WeatherEditorComponent implements OnInit {
   weatherCityList:Array<WeatherCityRecord>;
   homeCityId: number;
   
-  constructor(private weatherCityService: WeatherCityService, private storageService: WebstorageService) { }
+  constructor(private weatherCityService: WeatherCityService, private storageService: LocalStorageService) { }
 
   ngOnInit() {
     this.homeCityId = this.storageService.get('homeCityId') || "";

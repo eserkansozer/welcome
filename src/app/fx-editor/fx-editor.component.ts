@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { WebstorageService } from '../Services/webstorage.service';
+import { LocalStorageService } from '../Services/webstorage.service';
 import { FxRecord } from '../Models/FxRecord';
 
 
@@ -13,7 +13,7 @@ export class FxEditorComponent implements OnInit {
 
   fxOnEdit: FxRecord;
 
-  constructor(private storageService: WebstorageService) { }
+  constructor(private storageService: LocalStorageService) { }
 
   ngOnInit() {
     this.fxOnEdit = this.storageService.get('fx') as FxRecord  || new FxRecord("","",0);        

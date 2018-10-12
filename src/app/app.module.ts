@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 import { TitleComponent } from './title/title.component';
 import { MainComponent } from './main/main.component';
 import { BirthdayReminderComponent } from './birthday-reminder/birthday-reminder.component';
-import { WebstorageService } from './Services/webstorage.service';
+import { LocalStorageService } from './Services/webstorage.service';
 import { DaytimeService } from './Services/daytime.service';
 import { BirthdayService } from './Services/birthday.service';
 import { BirthdayEditorComponent } from './birthday-editor/birthday-editor.component';
@@ -29,7 +29,7 @@ import { WeatherService } from './Services/weather.service';
 import { AppErrorHandler } from './common/app-error-handler';
 
 @NgModule({
-  declarations: [
+  declarations: [//the view classes that belong to this module. Angular has three kinds of view classes: components, directives, and pipes.
     AppComponent,
     TitleComponent,
     MainComponent,
@@ -43,7 +43,7 @@ import { AppErrorHandler } from './common/app-error-handler';
     FxComponent,
     FxEditorComponent
   ],
-  imports: [
+  imports: [//other modules whose exported classes are needed by component templates declared in this module.
     BrowserModule,
     StorageServiceModule,
     FormsModule,
@@ -54,8 +54,9 @@ import { AppErrorHandler } from './common/app-error-handler';
       {path:'**', component: NotFoundComponent}]
     )
   ],
-  providers: [
-    WebstorageService, 
+  //exports: the subset of declarations that should be visible and usable in the component templates of other modules.
+  providers: [//creators of services that this module contributes to the global collection of services; they become accessible in all parts of the app.
+    LocalStorageService, 
     DaytimeService,
     BirthdayService,
     DataApiService,
@@ -64,6 +65,6 @@ import { AppErrorHandler } from './common/app-error-handler';
     FxService,
     {provide: ErrorHandler, useClass: AppErrorHandler}//replacing standard error handler with custom global error handler
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent]// the main application view, called the root component, that hosts all other app views. Only the root module should set this bootstrap property.
 })
 export class AppModule { }

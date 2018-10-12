@@ -1,6 +1,6 @@
 import { FxService } from './../Services/fx.service';
 import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
-import { WebstorageService } from '../Services/webstorage.service';
+import { LocalStorageService } from '../Services/webstorage.service';
 import { FxRecord } from '../Models/FxRecord';
 
 @Component({
@@ -13,7 +13,7 @@ export class FxComponent implements OnInit {
   fx: FxRecord;
   @Input() refreshTriggerInput;
   
-  constructor(private fxService: FxService, private storageService : WebstorageService) { }
+  constructor(private fxService: FxService, private storageService : LocalStorageService) { }
 
   ngOnInit() {
     let fxConfig = this.storageService.get('fx') as FxRecord;

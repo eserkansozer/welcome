@@ -1,4 +1,4 @@
-import { WebstorageService } from './../Services/webstorage.service';
+import { LocalStorageService } from './../Services/webstorage.service';
 import { WeatherService } from './../Services/weather.service';
 import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { WeatherRecord } from '../Models/WeatherRecord';
@@ -13,7 +13,7 @@ export class WeatherForecastComponent implements OnInit {
   @Input() refreshTriggerInput;
 
   weather: WeatherRecord;
-  constructor(private weatherService: WeatherService, private storageService : WebstorageService) { }
+  constructor(private weatherService: WeatherService, private storageService : LocalStorageService) { }
 
   ngOnInit() {
     let cityId = this.storageService.get('homeCityId');
