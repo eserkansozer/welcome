@@ -23,9 +23,6 @@ import { Component, trigger, state, style, transition, animate } from '@angular/
 })
 export class MainComponent {
   settingsPaneExpanded : string = 'inactive';
-  weatherRefreshToggle : Boolean = false;
-  birthdayRefreshToggle : Boolean = false;
-  fxRefreshToggle : Boolean = false;
 
   constructor(private dayTimeService: DaytimeService) { }
 
@@ -46,18 +43,5 @@ export class MainComponent {
   onSettingsClicked(){
     this.settingsPaneExpanded = this.settingsPaneExpanded == 'active' ? 'inactive' : 'active';
   }
-
-  onRefreshPanes(event){
-    switch (event) {
-      case "birthday":
-        this.birthdayRefreshToggle = !this.birthdayRefreshToggle;
-        break;
-      case "weather":
-        this.weatherRefreshToggle = !this.weatherRefreshToggle;
-        break;
-      case "fx":
-        this.fxRefreshToggle = !this.fxRefreshToggle;
-        break;
-    }
-  }
+  
 }

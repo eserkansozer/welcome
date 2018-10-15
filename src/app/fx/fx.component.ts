@@ -11,7 +11,6 @@ import { FxRecord } from '../Models/FxRecord';
 export class FxComponent implements OnInit {
 
   fx: FxRecord;
-  @Input() refreshTriggerInput;
   
   constructor(private fxService: FxService, private storageService : LocalStorageService) { }
 
@@ -29,9 +28,9 @@ export class FxComponent implements OnInit {
     this.fx = new FxRecord(fxConfig.fromCurrency, fxConfig.toCurrency, rate);
   }
 
-  ngOnChanges(changes: SimpleChanges) 
+  refresh(event)
   {
-    if(!changes.refreshTriggerInput.firstChange)
+    if(event = "fx")
     {
       this.ngOnInit();
     }
