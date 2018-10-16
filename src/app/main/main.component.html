@@ -1,13 +1,13 @@
 <div class="settings-panel" [@expansionState]="settingsPaneExpanded">
-    <app-editor (editorRefresh)="bdayReminder.refresh($event);fx.refresh($event);weather.refresh($event);"></app-editor>    
+    <app-editor (editorRefresh)="refreshPanes($event)"></app-editor>    
 </div>
 <div class="main" [style.backgroundImage]="'url('+getDesktopImageUrl()+')'">
     <div class="cog-container">
         <i class="fas fa-cog fa-2x" (click)="onSettingsClicked()"></i>
     </div>
-    <app-birthday-reminder #bdayReminder [closable]="true"></app-birthday-reminder>
-    <app-weather-forecast #weather></app-weather-forecast>
-    <app-fx #fx></app-fx>
+    <app-birthday-reminder [closable]="true"></app-birthday-reminder>
+    <app-weather-forecast></app-weather-forecast>
+    <app-fx></app-fx>
     <app-title></app-title>
     <a class="about-link text-secondary" routerLink="/about">About</a>
 </div>

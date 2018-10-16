@@ -22,12 +22,9 @@ export class BirthdayReminderComponent implements OnInit {
     this.todaysBirthdays = birthdays.filter((birthday) => birthday.date == today);
   }
 
-  refresh(event)
+  refresh()
   {
-    if(event = "birthday")
-    {
-      this.ngOnInit();
-    }
+    this.ngOnInit();
   }
 }
 

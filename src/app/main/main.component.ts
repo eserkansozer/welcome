@@ -1,6 +1,9 @@
+import { FxComponent } from './../fx/fx.component';
 import { TimeOfDay } from '../Enums';
 import { DaytimeService } from '../Services/daytime.service';
-import { Component, trigger, state, style, transition, animate } from '@angular/core';
+import { Component, trigger, state, style, transition, animate, ViewChild } from '@angular/core';
+import { BirthdayReminderComponent } from '../birthday-reminder/birthday-reminder.component';
+import { WeatherForecastComponent } from '../weather-forecast/weather-forecast.component';
 
 @Component({
   selector: 'app-main',
@@ -24,6 +27,15 @@ import { Component, trigger, state, style, transition, animate } from '@angular/
 export class MainComponent {
   settingsPaneExpanded : string = 'inactive';
 
+  @ViewChild(BirthdayReminderComponent)
+  private birthdayComponent: BirthdayReminderComponent;
+
+  @ViewChild(WeatherForecastComponent)
+  private weatherComponent: WeatherForecastComponent;
+
+  @ViewChild(FxComponent)
+  private fxComponent: FxComponent;
+
   constructor(private dayTimeService: DaytimeService) { }
 
   getDesktopImageUrl() : string {
@@ -44,4 +56,18 @@ export class MainComponent {
     this.settingsPaneExpanded = this.settingsPaneExpanded == 'active' ? 'inactive' : 'active';
   }
   
+  refreshPanes(event)
+  {
+    switch (event) {
+      case "birthday":
+        this.birthdayComponent.refresh();
+        break;
+      case "weather":
+        this.weatherComponent.refresh();
+        break;
+      case "fx":
+        this.fxComponent.refresh();
+        break;
+    }    
+  }
 }

@@ -1,5 +1,5 @@
 import { FxService } from './../Services/fx.service';
-import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from '../Services/webstorage.service';
 import { FxRecord } from '../Models/FxRecord';
 
@@ -11,28 +11,23 @@ import { FxRecord } from '../Models/FxRecord';
 export class FxComponent implements OnInit {
 
   fx: FxRecord;
-  
-  constructor(private fxService: FxService, private storageService : LocalStorageService) { }
+
+  constructor(private fxService: FxService, private storageService: LocalStorageService) { }
 
   ngOnInit() {
     let fxConfig = this.storageService.get('fx') as FxRecord;
-    if(fxConfig)
-    {
+    if (fxConfig) {
       this.fxService.getFX()
-      .subscribe(json => this.mapJsonToFxRecord(json, fxConfig));
+        .subscribe(json => this.mapJsonToFxRecord(json, fxConfig));
     }
   }
 
   mapJsonToFxRecord(json: any, fxConfig: FxRecord) {
-    let rate =  json.rates[fxConfig.toCurrency] / json.rates[fxConfig.fromCurrency];
+    let rate = json.rates[fxConfig.toCurrency] / json.rates[fxConfig.fromCurrency];
     this.fx = new FxRecord(fxConfig.fromCurrency, fxConfig.toCurrency, rate);
   }
 
-  refresh(event)
-  {
-    if(event = "fx")
-    {
-      this.ngOnInit();
-    }
+  refresh() {
+    this.ngOnInit();
   }
 }
