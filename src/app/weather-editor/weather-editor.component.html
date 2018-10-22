@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col">
       <label for="city">City</label>
-      <input auto-complete [(ngModel)]="homeCity" [source]="weatherCityList" list-formatter="name" name="city" id="city"
+      <input autocomplete="off"  auto-complete [(ngModel)]="homeCity" [source]="weatherCityList" list-formatter="name" name="city" id="city"
         class="form-control form-control-sm" #city="ngModel" required />
       <div class="alert alert-danger" *ngIf="city.dirty && (homeCity == null || homeCity.id == null)">
         <div>Please select a city from the list.</div>
