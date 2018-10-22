@@ -14,10 +14,10 @@ export class WeatherForecastComponent implements OnInit {
   constructor(private weatherService: WeatherService, private storageService : LocalStorageService) { }
 
   ngOnInit() {
-    let cityId = this.storageService.get('homeCityId');
-    if(cityId != null && cityId !="")
+    let homeCity = this.storageService.get('homeCity');
+    if(homeCity != null)
     {
-      this.weatherService.getWeather(cityId)
+      this.weatherService.getWeather(homeCity.id)
       .subscribe(json => this.mapJsonToWeatherRecord(json) );    
     }
   }

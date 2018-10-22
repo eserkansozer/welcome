@@ -27,6 +27,7 @@ import { FxService } from './Services/fx.service';
 import { FxEditorComponent } from './fx-editor/fx-editor.component';
 import { WeatherService } from './Services/weather.service';
 import { AppErrorHandler } from './common/app-error-handler';
+import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
 
 @NgModule({
   declarations: [//the view classes that belong to this module. Angular has three kinds of view classes: components, directives, and pipes.
@@ -49,6 +50,7 @@ import { AppErrorHandler } from './common/app-error-handler';
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
+    Ng2AutoCompleteModule,
     RouterModule.forRoot([
       {path:'', component: MainComponent},
       {path:'about', component: CreditsComponent},

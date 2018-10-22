@@ -13,12 +13,12 @@ export class WeatherEditorComponent implements OnInit {
   @Output() refresh = new EventEmitter<string>();
 
   weatherCityList:Array<WeatherCityRecord>;
-  homeCityId: number;
+  homeCity: number;
   
   constructor(private weatherCityService: WeatherCityService, private storageService: LocalStorageService) { }
 
   ngOnInit() {
-    this.homeCityId = this.storageService.get('homeCityId') || "";
+    this.homeCity = this.storageService.get('homeCity') || "";
 
     this.weatherCityService.getAll()
       .subscribe(json => this.mapJsonToWeatherCityRecord(json));
@@ -30,7 +30,7 @@ export class WeatherEditorComponent implements OnInit {
   }
 
   onCitySelect(){
-    this.storageService.set('homeCityId', this.homeCityId);
+    this.storageService.set('homeCity', this.homeCity);
     this.refresh.emit("weather");
   }
 }

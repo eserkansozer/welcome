@@ -1,10 +1,16 @@
 <div class="form-group">
-  <label for="city">City</label>
-  <select [(ngModel)]="homeCityId" #city="ngModel" name="city" id="city" class="form-control form-control-sm" (change)="onCitySelect()" required>
-    <option value="" selected>Please select</option>
-    <option *ngFor="let w of weatherCityList" [value]="w.id">{{w.name}}</option>
-  </select>
-  <div class="alert alert-danger" *ngIf="city.dirty && !city.valid">
-      <div *ngIf="city.errors.required">City field is required.</div>
+  <div class="row">
+    <div class="col">
+      <label for="city">City</label>
+      <input auto-complete [(ngModel)]="homeCity" [source]="weatherCityList" list-formatter="name" name="city" id="city"
+        class="form-control form-control-sm" #city="ngModel" required />
+      <div class="alert alert-danger" *ngIf="city.dirty && !city.valid">
+        <div *ngIf="city.errors.required">City field is required.</div>
+      </div>
     </div>
+
+    <div class="col">
+      <button class="btn btn-primary" (click)="onCitySelect()" [disabled]="city.invalid || city.invalid">Save</button>
+    </div>
+  </div>
 </div>
