@@ -45,3 +45,4 @@ src/environments
 src/WeatherCityService/WeatherCityService/appsettings.json
 src/WeatherCityService/WeatherCityService/appsettings.Development.json
 /bin
+/obj
