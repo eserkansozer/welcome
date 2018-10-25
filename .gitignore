@@ -42,7 +42,8 @@ testem.log
 Thumbs.db
 
 src/environments
-src/WeatherCityService/WeatherCityService/appsettings.json
-src/WeatherCityService/WeatherCityService/appsettings.Development.json
+**/appsettings.development.json
+**/appsettings.staging.json
+**/appsettings.production.json
 /bin
 /obj
