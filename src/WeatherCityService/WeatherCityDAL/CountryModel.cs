@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WeatherCityDAL
 {
-    public class CountryDataObject
+    public class CountryModel
     {
       public string Code { get; set; }
       public string Name { get; set; }

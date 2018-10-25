@@ -25,6 +25,7 @@ namespace WeatherCityService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<ICitiesRepository, CitiesRepository>();
+            services.AddTransient<ICountriesRepository, CountriesRepository>();
             services.AddCors();
             services.AddMvc();
         }

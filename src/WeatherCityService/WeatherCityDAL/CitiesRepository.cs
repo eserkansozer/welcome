@@ -28,18 +28,12 @@ namespace WeatherCityDAL
         });
     }
 
-    public IEnumerable<CityDataObject> GetAllCities()
+    public IEnumerable<CityModel> GetCitiesByCountry(string countryCode)
     {
-      var query = $"SELECT * FROM c WHERE c.country =\"GB\"";
+      var query = $"SELECT * FROM c WHERE c.country =\"{countryCode}\"";
 
-      List<CityDataObject> result = null;
-      
-      try{
-        result = _client.CreateDocumentQuery<CityDataObject>(UriFactory.CreateDocumentCollectionUri(_databaseId, "cities"), query).ToList();
-      }catch(Exception ex)
-      {
+      var result = _client.CreateDocumentQuery<CityModel>(UriFactory.CreateDocumentCollectionUri(_databaseId, "cities"), query).ToList();
 
-      }
       return result;
     }
   }

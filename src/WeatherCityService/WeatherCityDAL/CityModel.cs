@@ -1,6 +1,6 @@
 namespace WeatherCityDAL
 {
-  public class CityDataObject
+  public class CityModel
   {
     public string id { get; set; }
     public string name { get; set; }

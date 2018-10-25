@@ -1,16 +1,27 @@
 <div class="form-group">
   <div class="row">
     <div class="col">
+      <label for="country">Country</label>
+      <select [(ngModel)]="homeCountryCode" #country="ngModel" name="country" id="country" class="form-control form-control-sm"
+        (change)="onCountrySelect()" required>
+        <option value="" selected>Please select</option>
+        <option *ngFor="let w of weatherCountryList" [value]="w.code">{{w.name}}</option>
+      </select>
+      <div class="alert alert-danger" *ngIf="country.dirty && !country.valid">
+        <div *ngIf="country.errors.required">Country field is required.</div>
+      </div>
+    </div>
+    <div class="col">
       <label for="city">City</label>
-      <input autocomplete="off"  auto-complete [(ngModel)]="homeCity" [source]="weatherCityList" list-formatter="name" name="city" id="city"
-        class="form-control form-control-sm" #city="ngModel" required />
+      <input [disabled]="weatherCityList==null" autocomplete="off" auto-complete [(ngModel)]="homeCity" [source]="weatherCityList" list-formatter="name"
+        name="city" id="city" class="form-control form-control-sm" #city="ngModel" required />
       <div class="alert alert-danger" *ngIf="city.dirty && (homeCity == null || homeCity.id == null)">
         <div>Please select a city from the list.</div>
       </div>
     </div>
 
     <div class="col">
-      <button class="btn btn-primary" (click)="onCitySelect()" [disabled]="city.invalid || city.invalid">Save</button>
+      <button class="btn btn-primary" (click)="onSave()" [disabled]="city.invalid || city.invalid">Save</button>
     </div>
   </div>
 </div>

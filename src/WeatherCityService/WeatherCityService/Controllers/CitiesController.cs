@@ -13,16 +13,16 @@ namespace WeatherCityService.Controllers
   {
     private readonly ICitiesRepository _citiesRepository;
 
-    public CitiesController(IConfiguration config, ICitiesRepository citiesRepository)
+    public CitiesController(ICitiesRepository citiesRepository)
     {
       _citiesRepository = citiesRepository;
     }
 
-    // GET: api/Cities
-    [HttpGet]
-    public IEnumerable<CityDataObject> Get()
+    //// GET: api/Cities/countryCode=GB
+    [HttpGet("countryCode={countryCode}", Name = "Get")]
+    public IEnumerable<CityModel> Get(string countryCode)
     {
-      var cityList = _citiesRepository.GetAllCities();
+      var cityList = _citiesRepository.GetCitiesByCountry(countryCode);
 
       return cityList;
     }
