@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,6 +19,10 @@ namespace WeatherCityService
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                  .ConfigureAppConfiguration((hostingContext, config) =>
+                  {
+                    config.SetBasePath(Directory.GetCurrentDirectory());
+                  })
                 .UseStartup<Startup>()
                 .Build();
     }

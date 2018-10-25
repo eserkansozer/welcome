@@ -42,3 +42,4 @@ testem.log
 Thumbs.db
 
 src/environments
+src/WeatherCityService/WeatherCityService/appsettings.json
