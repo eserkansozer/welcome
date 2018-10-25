@@ -43,7 +43,7 @@ Thumbs.db
 
 src/environments
 **/appsettings.development.json
-**/appsettings.staging.json
+**/appsettings.json
 **/appsettings.production.json
 /bin
 /obj
