@@ -28,7 +28,7 @@ export class WeatherEditorComponent implements OnInit {
 
     this.homeCity = this.storageService.get('homeCity') || "";
     if (this.homeCountryCode != "") {
-      this.weatherCityService.getByRoute([{key: "countryCode", value:this.homeCountryCode}])
+      this.weatherCityService.getByParameters([{key: "countryCode", value:this.homeCountryCode}])
         .subscribe(json => this.mapJsonToWeatherCityRecord(json));
     }
   }
@@ -46,7 +46,7 @@ export class WeatherEditorComponent implements OnInit {
   onCountrySelect(){
     this.homeCity = null;
     this.weatherCityList = null;
-    this.weatherCityService.getByRoute([{key: "countryCode", value:this.homeCountryCode}])
+    this.weatherCityService.getByParameters([{key: "countryCode", value:this.homeCountryCode}])
     .subscribe(json => this.mapJsonToWeatherCityRecord(json));
   }
 

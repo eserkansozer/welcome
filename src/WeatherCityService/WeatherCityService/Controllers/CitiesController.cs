@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Linq;
 using WeatherCityDAL;
+using System.Linq;
 
 namespace WeatherCityService.Controllers
 {
@@ -19,12 +20,17 @@ namespace WeatherCityService.Controllers
     }
 
     //// GET: api/Cities/countryCode=GB
-    [HttpGet("countryCode={countryCode}", Name = "Get")]
-    public IEnumerable<CityModel> Get(string countryCode)
+    [HttpGet]
+    public ActionResult Get([FromQuery]string countryCode)
     {
       var cityList = _citiesRepository.GetCitiesByCountry(countryCode);
 
-      return cityList;
+      if(cityList == null || cityList.ToList().Count == 0)
+      {
+        return NotFound();
+      }
+
+      return Ok(cityList);
     }
 
     //// GET: api/Cities/5

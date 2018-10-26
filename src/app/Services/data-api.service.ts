@@ -29,17 +29,6 @@ export class DataApiService {
       .catch(this.handleError);
   }
 
-  getByRoute(parameters : Array<{key:string, value: string}>) {
-    let queryString : string  = '/';
-    parameters.forEach(parameter => {
-      queryString+=parameter.key + '=' + parameter.value + '/'
-    });
-
-    return this.http.get(this.url + queryString)
-      .map(response => response.json())
-      .catch(this.handleError);
-  }
-
   create(resource) {
     return this.http.post(this.url, JSON.stringify(resource))
       .map(response => response.json())
