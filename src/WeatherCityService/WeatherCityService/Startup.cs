@@ -24,8 +24,8 @@ namespace WeatherCityService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<ICitiesRepository, CitiesRepository>();
-            services.AddTransient<ICountriesRepository, CountriesRepository>();
+            services.AddSingleton<ICitiesRepository, CitiesRepository>();
+            services.AddSingleton<ICountriesRepository, CountriesRepository>();
             services.AddCors();
             services.AddMvc();
         }
