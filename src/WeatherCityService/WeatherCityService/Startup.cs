@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using WeatherCityDAL;
+using WeatherCityDAL.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace WeatherCityService
 {
@@ -24,8 +26,9 @@ namespace WeatherCityService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<ICitiesRepository, CitiesRepository>();
-            services.AddSingleton<ICountriesRepository, CountriesRepository>();
+            services.AddSingleton<ICitiesRepository, CitiesCosmosDbRepository>();
+            services.AddSingleton<ICountriesRepository, CountriesCosmosDbRepository>();
+            services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnectionString")));
             services.AddCors();
             services.AddMvc();
         }

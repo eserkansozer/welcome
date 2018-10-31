@@ -6,13 +6,13 @@ using System.Linq;
 
 namespace WeatherCityDAL
 {
-  public class CitiesRepository : ICitiesRepository
+  public class CitiesCosmosDbRepository : ICitiesRepository
   {
     private readonly string _databaseId;
     private static DocumentClient _client;
     private readonly IConfiguration _config;
 
-    public CitiesRepository(IConfiguration config)
+    public CitiesCosmosDbRepository(IConfiguration config)
     {
       _config = config;
 
