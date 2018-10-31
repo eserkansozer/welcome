@@ -13442,9 +13442,6 @@
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
       "projectUniqueName": "C:\\Users\\serka_xvtv50u\\Documents\\AngularProjects\\HomePage\\src\\WeatherCityService\\WeatherCityService\\WeatherCityService.csproj",
       "projectName": "WeatherCityService",
@@ -13484,22 +13481,22 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+          "Microsoft.AspNetCore.All": {
             "target": "Package",
-            "version": "2.0.0"
+            "version": "[2.0.5, )"
           },
           "Microsoft.NETCore.App": {
             "target": "Package",
-            "version": "2.0",
+            "version": "[2.0.0, )",
             "autoReferenced": true
           },
-          "Microsoft.AspNetCore.All": {
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
-            "version": "2.0.5"
+            "version": "[2.0.0, )"
           },
           "Newtonsoft.Json": {
             "target": "Package",
-            "version": "11.0.2"
+            "version": "[11.0.2, )"
           }
         },
         "imports": [

@@ -20,7 +20,7 @@ namespace WeatherCityService.Controllers
 
     // GET: api/Countries
     [HttpGet]
-    public IEnumerable<CountryModel> Get()
+    public IEnumerable<WeatherCityDAL.Models.CountryModel> Get()
     {
       var countryList = _countriesRepository.GetAllCountries();
 

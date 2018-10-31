@@ -6,6 +6,6 @@ namespace WeatherCityDAL
 {
     public interface ICitiesRepository
     {
-        IEnumerable<CityModel> GetCitiesByCountry(string countryCode);
+        IEnumerable<Models.CityModel> GetCitiesByCountry(string countryCode);
     }
 }

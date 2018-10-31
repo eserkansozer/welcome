@@ -1,4 +1,4 @@
-namespace WeatherCityDAL
+namespace WeatherCityDAL.Models
 {
   public class CityModel
   {

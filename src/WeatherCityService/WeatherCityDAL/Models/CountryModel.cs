@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace WeatherCityDAL
+namespace WeatherCityDAL.Models
 {
     public class CountryModel
     {

@@ -28,11 +28,11 @@ namespace WeatherCityDAL
               });
         }
 
-        public IEnumerable<CountryModel> GetAllCountries()
+        public IEnumerable<Models.CountryModel> GetAllCountries()
         {
             var query = $"SELECT * FROM c";
 
-            var result = _client.CreateDocumentQuery<CountryModel>(UriFactory.CreateDocumentCollectionUri(_databaseId, "country_codes"), query).ToList();
+            var result = _client.CreateDocumentQuery<Models.CountryModel>(UriFactory.CreateDocumentCollectionUri(_databaseId, "country_codes"), query).ToList();
 
             return result;
         }
