@@ -9,9 +9,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/WeatherCityService/bin/Debug/netcoreapp2.0/WeatherCityService.dll",
+            "program": "${workspaceFolder}/WeatherCityServiceWeb/bin/Debug/netcoreapp2.0/WeatherCityService.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/WeatherCityService",
+            "cwd": "${workspaceFolder}/WeatherCityServiceWeb",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart",
             "launchBrowser": {

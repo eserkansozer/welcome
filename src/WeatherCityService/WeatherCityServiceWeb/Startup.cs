@@ -27,7 +27,7 @@ namespace WeatherCityService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<ICitiesRepository, CitiesCosmosDbRepository>();
-            services.AddSingleton<ICountriesRepository, CountriesCosmosDbRepository>();
+            services.AddSingleton<ICountriesRepository, CountriesCsmosDbRepository>();
             services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnectionString")));
             services.AddCors();
             services.AddMvc();

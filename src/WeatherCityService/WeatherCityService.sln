@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherCityService", "WeatherCityService\WeatherCityService.csproj", "{0FCAB60B-2D24-49D3-AFD6-88AF56C6DDB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherCityServiceWeb", "WeatherCityServiceWeb\WeatherCityServiceWeb.csproj", "{0FCAB60B-2D24-49D3-AFD6-88AF56C6DDB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherCityDAL", "WeatherCityDAL\WeatherCityDAL.csproj", "{62559AB5-80C1-4503-A36A-B68C51B10DCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherCityDAL", "WeatherCityDAL\WeatherCityDAL.csproj", "{62559AB5-80C1-4503-A36A-B68C51B10DCD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/WeatherCityService/WeatherCityService.csproj"
+                "${workspaceFolder}/WeatherCityServiceWeb/WeatherCityServiceWeb.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
