@@ -8,6 +8,6 @@ namespace WeatherCityDAL.Data
     public DataContext(DbContextOptions<DataContext> options) : base(options)
     {    }
 
-    public DbSet<CityModel> Cities { get; set; }
+    public DbSet<CityModel> WeatherCity { get; set; }
   }
 }

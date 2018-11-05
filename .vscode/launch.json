@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/src/WeatherCityService/WeatherCityService/bin/Debug/netcoreapp2.0/WeatherCityService.dll",
+            "program": "${workspaceFolder}/src/WeatherCityService/WeatherCityServiceWeb/bin/Debug/netcoreapp2.0/WeatherCityService.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/src/WeatherCityService/WeatherCityService",
+            "cwd": "${workspaceFolder}/src/WeatherCityService/WeatherCityServiceWeb",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart",
             "launchBrowser": {

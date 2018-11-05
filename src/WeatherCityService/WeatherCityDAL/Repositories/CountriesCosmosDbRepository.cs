@@ -6,13 +6,13 @@ using Microsoft.Extensions.Configuration;
 
 namespace WeatherCityDAL
 {
-    public class CountriesCsmosDbRepository : ICountriesRepository
+    public class CountriesCosmosDbRepository : ICountriesRepository
     {
         private readonly string _databaseId;
         private static DocumentClient _client;
         private readonly IConfiguration _config;
 
-        public CountriesCsmosDbRepository(IConfiguration config)
+        public CountriesCosmosDbRepository(IConfiguration config)
         {
             _config = config;
 
