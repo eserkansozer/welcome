@@ -8,8 +8,8 @@ C:\Users\serka_xvtv50u\Documents\AngularProjects\HomePage\src\WeatherCityService
 C:\Users\serka_xvtv50u\Documents\AngularProjects\HomePage\src\WeatherCityService\WeatherCityDAL\bin\Release\netcoreapp2.0\DocumentDB.Spatial.Sql.dll
 C:\Users\serka_xvtv50u\Documents\AngularProjects\HomePage\src\WeatherCityService\WeatherCityDAL\bin\Release\netcoreapp2.0\Microsoft.IdentityModel.Protocols.dll
 C:\Users\serka_xvtv50u\Documents\AngularProjects\HomePage\src\WeatherCityService\WeatherCityDAL\bin\Release\netcoreapp2.0\Microsoft.IdentityModel.Protocols.xml
-C:\Users\serka_xvtv50u\Documents\AngularProjects\HomePage\src\WeatherCityService\WeatherCityDAL\bin\Release\netcoreapp2.0\Microsoft.Extensions.Configuration.Binder.dll
-C:\Users\serka_xvtv50u\Documents\AngularProjects\HomePage\src\WeatherCityService\WeatherCityDAL\bin\Release\netcoreapp2.0\Microsoft.Extensions.Configuration.Binder.xml
 C:\Users\serka_xvtv50u\Documents\AngularProjects\HomePage\src\WeatherCityService\WeatherCityDAL\bin\Release\netcoreapp2.0\WeatherCityDAL.pdb
 C:\Users\serka_xvtv50u\Documents\AngularProjects\HomePage\src\WeatherCityService\WeatherCityDAL\obj\Release\netcoreapp2.0\WeatherCityDAL.dll
 C:\Users\serka_xvtv50u\Documents\AngularProjects\HomePage\src\WeatherCityService\WeatherCityDAL\obj\Release\netcoreapp2.0\WeatherCityDAL.pdb
+C:\Users\serka_xvtv50u\Documents\AngularProjects\HomePage\src\WeatherCityService\WeatherCityDAL\bin\Release\netcoreapp2.0\WeatherCityDAL.runtimeconfig.json
+C:\Users\serka_xvtv50u\Documents\AngularProjects\HomePage\src\WeatherCityService\WeatherCityDAL\bin\Release\netcoreapp2.0\WeatherCityDAL.runtimeconfig.dev.json

@@ -1,16 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using WeatherCityDAL;
 using WeatherCityDAL.Data;
 using Microsoft.EntityFrameworkCore;
+using WeatherCityDAL.Repositories;
 
 namespace WeatherCityService
 {
@@ -31,10 +25,9 @@ namespace WeatherCityService
       builder => builder.MigrationsAssembly("WeatherCityServiceWeb"))
       );
 
-      //services.AddSingleton<ICitiesRepository, CitiesCosmosDbRepository>();
-      services.AddTransient<ICitiesRepository, CitiesSqlRepository>();
-      services.AddSingleton<ICountriesRepository, CountriesCosmosDbRepository>();
-      
+      services.AddTransient<ICountriesRepository, CountriesSqlRepository>();
+      services.AddSingleton<ICitiesRepository, CitiesCosmosDbRepository>();
+
       services.AddCors();
       services.AddMvc();
     }

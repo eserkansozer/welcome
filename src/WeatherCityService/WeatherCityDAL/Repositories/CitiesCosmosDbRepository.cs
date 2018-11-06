@@ -4,7 +4,7 @@ using Microsoft.Azure.Documents.Client;
 using Microsoft.Extensions.Configuration;
 using System.Linq;
 
-namespace WeatherCityDAL
+namespace WeatherCityDAL.Repositories
 {
   public class CitiesCosmosDbRepository : ICitiesRepository
   {
@@ -32,7 +32,10 @@ namespace WeatherCityDAL
     {
       var query = $"SELECT * FROM c WHERE c.country =\"{countryCode}\"";
 
-      var result = _client.CreateDocumentQuery<Models.CityModel>(UriFactory.CreateDocumentCollectionUri(_databaseId, "cities"), query).ToList();
+      var result = _client
+        .CreateDocumentQuery<Models.CityModel>(UriFactory.CreateDocumentCollectionUri(_databaseId, "cities"), query)        
+        .ToList()
+        .OrderBy(c => c.name);
 
       return result;
     }

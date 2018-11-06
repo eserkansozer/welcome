@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Linq;
 using WeatherCityDAL;
 using System.Linq;
+using WeatherCityDAL.Repositories;
 
 namespace WeatherCityService.Controllers
 {

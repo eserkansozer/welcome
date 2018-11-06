@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace WeatherCityDAL
+namespace WeatherCityDAL.Repositories
 {
     public interface ICountriesRepository
     {

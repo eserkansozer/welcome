@@ -9,5 +9,6 @@ namespace WeatherCityDAL.Data
     {    }
 
     public DbSet<CityModel> WeatherCity { get; set; }
+    public DbSet<CountryModel> WeatherCountry { get; set; }
   }
 }
