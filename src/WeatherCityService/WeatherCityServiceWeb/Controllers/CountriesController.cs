@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Linq;
 using WeatherCityDAL;
 using WeatherCityDAL.Repositories;
+using System.Threading.Tasks;
 
 namespace WeatherCityService.Controllers
 {
@@ -21,9 +22,9 @@ namespace WeatherCityService.Controllers
 
     // GET: api/Countries
     [HttpGet]
-    public IEnumerable<WeatherCityDAL.Models.CountryModel> Get()
+    public async Task<IEnumerable<WeatherCityDAL.Models.CountryModel>> Get()
     {
-      var countryList = _countriesRepository.GetAllCountries();
+      var countryList = await _countriesRepository.GetAllCountriesAsync();
 
       return countryList;
     }   
