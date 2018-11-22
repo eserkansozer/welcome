@@ -27,7 +27,7 @@ import { FxService } from './Services/fx.service';
 import { FxEditorComponent } from './fx-editor/fx-editor.component';
 import { WeatherService } from './Services/weather.service';
 import { AppErrorHandler } from './common/app-error-handler';
-import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
+//import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
 import { WeatherCountryService } from './Services/weather-country.service';
 
 @NgModule({
@@ -51,7 +51,7 @@ import { WeatherCountryService } from './Services/weather-country.service';
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    Ng2AutoCompleteModule,
+    //Ng2AutoCompleteModule,
     RouterModule.forRoot([
       {path:'', component: MainComponent},
       {path:'about', component: CreditsComponent},

@@ -1,9 +1,10 @@
 import { FxComponent } from './../fx/fx.component';
 import { TimeOfDay } from '../Enums';
 import { DaytimeService } from '../Services/daytime.service';
-import { Component, trigger, state, style, transition, animate, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { BirthdayReminderComponent } from '../birthday-reminder/birthday-reminder.component';
 import { WeatherForecastComponent } from '../weather-forecast/weather-forecast.component';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-main',
@@ -39,7 +40,6 @@ export class MainComponent {
   constructor(private dayTimeService: DaytimeService) { }
 
   getDesktopImageUrl() : string {
-
     let dayTime = this.dayTimeService.getDayTime();
 
     switch (dayTime) {

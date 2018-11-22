@@ -3,7 +3,7 @@ import { WeatherCityRecord } from './../Models/WeatherCityRecord';
 import { WeatherCityService } from './../Services/weather-city.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { LocalStorageService } from '../Services/webstorage.service';
-import { WeatherCountryRecord } from 'app/Models/WeatherCountryRecord';
+import { WeatherCountryRecord } from './../Models/WeatherCountryRecord';
 
 @Component({
   selector: 'app-weather-editor',

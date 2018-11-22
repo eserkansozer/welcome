@@ -14,7 +14,7 @@ export class FxComponent implements OnInit {
 
   constructor(private fxService: FxService, private storageService: LocalStorageService) { }
 
-  ngOnInit() {
+  ngOnInit() {    
     let fxConfig = this.storageService.get('fx') as FxRecord;
     if (fxConfig) {
       this.fxService.getFX()

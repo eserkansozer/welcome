@@ -25,7 +25,7 @@ export class TitleComponent {
   }
 
   getWelcomeMessage() {
-
+    
     let dayTime = this.dayTimeService.getDayTime();
 
     switch (dayTime) {
