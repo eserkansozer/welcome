@@ -1,0 +1,15 @@
+C:\Users\serka_xvtv50u\Documents\AngularProjects\HomePage\src\WeatherCityService\WeatherCityServiceWeb\bin\Release\netcoreapp2.0\Microsoft.Azure.Documents.ServiceInterop.dll
+C:\Users\serka_xvtv50u\Documents\AngularProjects\HomePage\src\WeatherCityService\WeatherCityServiceWeb\bin\Release\netcoreapp2.0\DocumentDB.Spatial.Sql.dll
+C:\Users\serka_xvtv50u\Documents\AngularProjects\HomePage\src\WeatherCityService\WeatherCityServiceWeb\bin\Release\netcoreapp2.0\WeatherCityServiceWeb.deps.json
+C:\Users\serka_xvtv50u\Documents\AngularProjects\HomePage\src\WeatherCityService\WeatherCityServiceWeb\bin\Release\netcoreapp2.0\WeatherCityServiceWeb.runtimeconfig.json
+C:\Users\serka_xvtv50u\Documents\AngularProjects\HomePage\src\WeatherCityService\WeatherCityServiceWeb\bin\Release\netcoreapp2.0\WeatherCityServiceWeb.runtimeconfig.dev.json
+C:\Users\serka_xvtv50u\Documents\AngularProjects\HomePage\src\WeatherCityService\WeatherCityServiceWeb\bin\Release\netcoreapp2.0\WeatherCityServiceWeb.dll
+C:\Users\serka_xvtv50u\Documents\AngularProjects\HomePage\src\WeatherCityService\WeatherCityServiceWeb\bin\Release\netcoreapp2.0\WeatherCityServiceWeb.pdb
+C:\Users\serka_xvtv50u\Documents\AngularProjects\HomePage\src\WeatherCityService\WeatherCityServiceWeb\bin\Release\netcoreapp2.0\WeatherCityDAL.dll
+C:\Users\serka_xvtv50u\Documents\AngularProjects\HomePage\src\WeatherCityService\WeatherCityServiceWeb\bin\Release\netcoreapp2.0\WeatherCityDAL.pdb
+C:\Users\serka_xvtv50u\Documents\AngularProjects\HomePage\src\WeatherCityService\WeatherCityServiceWeb\obj\Release\netcoreapp2.0\WeatherCityServiceWeb.csprojResolveAssemblyReference.cache
+C:\Users\serka_xvtv50u\Documents\AngularProjects\HomePage\src\WeatherCityService\WeatherCityServiceWeb\obj\Release\netcoreapp2.0\WeatherCityServiceWeb.csproj.CoreCompileInputs.cache
+C:\Users\serka_xvtv50u\Documents\AngularProjects\HomePage\src\WeatherCityService\WeatherCityServiceWeb\obj\Release\netcoreapp2.0\WeatherCityServiceWeb.AssemblyInfoInputs.cache
+C:\Users\serka_xvtv50u\Documents\AngularProjects\HomePage\src\WeatherCityService\WeatherCityServiceWeb\obj\Release\netcoreapp2.0\WeatherCityServiceWeb.AssemblyInfo.cs
+C:\Users\serka_xvtv50u\Documents\AngularProjects\HomePage\src\WeatherCityService\WeatherCityServiceWeb\obj\Release\netcoreapp2.0\WeatherCityServiceWeb.dll
+C:\Users\serka_xvtv50u\Documents\AngularProjects\HomePage\src\WeatherCityService\WeatherCityServiceWeb\obj\Release\netcoreapp2.0\WeatherCityServiceWeb.pdb
