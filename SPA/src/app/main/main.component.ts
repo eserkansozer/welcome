@@ -1,9 +1,9 @@
-import { FxComponent } from './../fx/fx.component';
+import { FxComponent } from './../banners/fx/fx.component';
 import { TimeOfDay } from '../Enums';
 import { DaytimeService } from '../Services/daytime.service';
 import { Component, ViewChild } from '@angular/core';
-import { BirthdayReminderComponent } from '../birthday-reminder/birthday-reminder.component';
-import { WeatherForecastComponent } from '../weather-forecast/weather-forecast.component';
+import { BirthdayReminderComponent } from '../banners/birthday-reminder/birthday-reminder.component';
+import { WeatherForecastComponent } from '../banners/weather-forecast/weather-forecast.component';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({

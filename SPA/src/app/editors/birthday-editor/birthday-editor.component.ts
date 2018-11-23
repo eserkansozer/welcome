@@ -1,5 +1,5 @@
-import { BirthdayService } from './../Services/birthday.service';
-import { BirthDayRecord } from './../Models/BirthDayRecord';
+import { BirthdayService } from './../../Services/birthday.service';
+import { BirthDayRecord } from './../../Models/BirthDayRecord';
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { timeout } from 'q';
 
@@ -45,6 +45,6 @@ export class BirthdayEditorComponent implements OnInit {
     this.birthdayService.updateBirthday(this.bDayOnEdit);
     this.allBirthDays = this.birthdayService.getBirthdays();
     this.mode = 'list';
-    this.refresh.emit("birthday"); 
+    this.refresh.emit("birthday");
   }
 }
