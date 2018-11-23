@@ -17,7 +17,7 @@ export class WeatherForecastComponent implements OnInit {
     let homeCity = this.storageService.get('homeCity');
     if(homeCity != null)
     {
-      this.weatherService.getWeather(homeCity.id)
+      this.weatherService.getWeather(homeCity)
       .subscribe(json => this.mapJsonToWeatherRecord(json) );    
     }
   }

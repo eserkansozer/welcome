@@ -14,45 +14,44 @@ export class WeatherEditorComponent implements OnInit {
 
   @Output() refresh = new EventEmitter<string>();
 
-  weatherCityList:Array<WeatherCityRecord>;
-  weatherCountryList:Array<WeatherCountryRecord>;
-  homeCity: WeatherCityRecord;
+  weatherCityList: Array<WeatherCityRecord>;
+  weatherCountryList: Array<WeatherCountryRecord>;
+  homeCity: number;
   homeCountryCode: string;
-  
-  constructor(private weatherCityService: WeatherCityService, private weatherCountryService: WeatherCountryService, private storageService: LocalStorageService) { }
+
+  constructor(private weatherCityService: WeatherCityService, private weatherCountryService: WeatherCountryService,
+    private storageService: LocalStorageService) { }
 
   ngOnInit() {
-    this.homeCountryCode = this.storageService.get('homeCountry') || "";
+    this.homeCountryCode = this.storageService.get('homeCountry') || '';
     this.weatherCountryService.getAll()
         .subscribe(json => this.mapJsonToWeatherCountryRecord(json));
 
-    this.homeCity = this.storageService.get('homeCity') || "";
-    if (this.homeCountryCode != "") {
-      this.weatherCityService.getByParameters([{key: "countryCode", value:this.homeCountryCode}])
+    this.homeCity = this.storageService.get('homeCity') || null;
+    if (this.homeCountryCode !== '') {
+      this.weatherCityService.getByParameters([{key: 'countryCode', value: this.homeCountryCode}])
         .subscribe(json => this.mapJsonToWeatherCityRecord(json));
     }
   }
 
-  mapJsonToWeatherCityRecord(json)
-  {       
-    this.weatherCityList = Array.from(json as Array<any>, w => new WeatherCityRecord(w.id, w.name, w.country));  
+  mapJsonToWeatherCityRecord(json) {
+    this.weatherCityList = Array.from(json as Array<any>, w => new WeatherCityRecord(w.id, w.name, w.country));
   }
 
-  mapJsonToWeatherCountryRecord(json)
-  {       
-    this.weatherCountryList = Array.from(json as Array<any>, w => new WeatherCountryRecord(w.name, w.code));  
+  mapJsonToWeatherCountryRecord(json) {
+    this.weatherCountryList = Array.from(json as Array<any>, w => new WeatherCountryRecord(w.name, w.code));
   }
 
-  onCountrySelect(){
+  onCountrySelect() {
     this.homeCity = null;
     this.weatherCityList = null;
-    this.weatherCityService.getByParameters([{key: "countryCode", value:this.homeCountryCode}])
+    this.weatherCityService.getByParameters([{key: 'countryCode', value: this.homeCountryCode}])
     .subscribe(json => this.mapJsonToWeatherCityRecord(json));
   }
 
-  onSave(){
+  onSave() {
     this.storageService.set('homeCity', this.homeCity);
     this.storageService.set('homeCountry', this.homeCountryCode);
-    this.refresh.emit("weather");
+    this.refresh.emit('weather');
   }
 }

@@ -11,16 +11,18 @@
         <div *ngIf="country.errors.required">Country field is required.</div>
       </div>
     </div>
-    <div class="col">
+    <div class="col" [hidden]="weatherCityList == null" >
       <label for="city">City</label>
-      <input [disabled]="weatherCityList==null" autocomplete="off" [(ngModel)]="homeCity" name="city" id="city" class="form-control form-control-sm" #city="ngModel" required />
-      <div class="alert alert-danger" *ngIf="city.dirty && (homeCity == null || homeCity.id == null)">
+      <type-ahead autocomplete="off" [(ngModel)]="homeCity" name="city" id="city" class="form-control form-control-sm" #city="ngModel" required
+      [suggestions]="weatherCityList" complex="true"></type-ahead>
+      <div class="alert alert-danger" *ngIf="homeCity == null">
         <div>Please select a city from the list.</div>
       </div>
+      {{homeCity}}
     </div>
 
     <div class="col">
-      <button class="btn btn-primary" (click)="onSave()" [disabled]="city.invalid || city.invalid">Save</button>
+      <button class="btn btn-primary" (click)="onSave()" [disabled]="city.invalid">Save</button>
     </div>
   </div>
 </div>

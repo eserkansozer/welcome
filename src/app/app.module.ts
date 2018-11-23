@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { StorageServiceModule} from 'angular-webstorage-service';
 import { FormsModule } from '@angular/forms';
-import { HttpModule} from '@angular/http';
+// import { HttpModule} from '@angular/http';
 import { RouterModule} from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -27,11 +27,12 @@ import { FxService } from './Services/fx.service';
 import { FxEditorComponent } from './fx-editor/fx-editor.component';
 import { WeatherService } from './Services/weather.service';
 import { AppErrorHandler } from './common/app-error-handler';
-//import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
+import { TypeaheadModule } from 'ngx-type-ahead';
 import { WeatherCountryService } from './Services/weather-country.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
-  declarations: [//the view classes that belong to this module. Angular has three kinds of view classes: components, directives, and pipes.
+  declarations: [// the view classes that belong to this module. Angular has three kinds of view classes: components, directives, and pipes.
     AppComponent,
     TitleComponent,
     MainComponent,
@@ -45,22 +46,23 @@ import { WeatherCountryService } from './Services/weather-country.service';
     FxComponent,
     FxEditorComponent
   ],
-  imports: [//other modules whose exported classes are needed by component templates declared in this module.
+  imports: [// other modules whose exported classes are needed by component templates declared in this module.
     BrowserModule,
     StorageServiceModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     BrowserAnimationsModule,
-    //Ng2AutoCompleteModule,
+    TypeaheadModule,
     RouterModule.forRoot([
-      {path:'', component: MainComponent},
-      {path:'about', component: CreditsComponent},
-      {path:'**', component: NotFoundComponent}]
+      {path: '', component: MainComponent},
+      {path: 'about', component: CreditsComponent},
+      {path: '**', component: NotFoundComponent}]
     )
   ],
-  //exports: the subset of declarations that should be visible and usable in the component templates of other modules.
-  providers: [//creators of services that this module contributes to the global collection of services; they become accessible in all parts of the app.
-    LocalStorageService, 
+  // exports: the subset of declarations that should be visible and usable in the component templates of other modules.
+  // tslint:disable-next-line:max-line-length
+  providers: [// creators of services that this module contributes to the global collection of services; they become accessible in all parts of the app.
+    LocalStorageService,
     DaytimeService,
     BirthdayService,
     DataApiService,
@@ -68,8 +70,9 @@ import { WeatherCountryService } from './Services/weather-country.service';
     WeatherCityService,
     WeatherCountryService,
     FxService,
-    {provide: ErrorHandler, useClass: AppErrorHandler}//replacing standard error handler with custom global error handler
+    {provide: ErrorHandler, useClass: AppErrorHandler}// replacing standard error handler with custom global error handler
   ],
+  // tslint:disable-next-line:max-line-length
   bootstrap: [AppComponent]// the main application view, called the root component, that hosts all other app views. Only the root module should set this bootstrap property.
 })
 export class AppModule { }
