@@ -16,7 +16,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
         display: 'none',
         opacity: 0
       })),
-      state('active', style({        
+      state('active', style({
         opacity: 1,
         display: 'block',
       })),
@@ -26,7 +26,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   ]
 })
 export class MainComponent {
-  settingsPaneExpanded : string = 'inactive';
+  settingsPaneExpanded = 'inactive';
 
   @ViewChild(BirthdayReminderComponent)
   private birthdayComponent: BirthdayReminderComponent;
@@ -39,35 +39,34 @@ export class MainComponent {
 
   constructor(private dayTimeService: DaytimeService) { }
 
-  getDesktopImageUrl() : string {
-    let dayTime = this.dayTimeService.getDayTime();
+  getDesktopImageUrl(): string {
+    const dayTime = this.dayTimeService.getDayTime();
 
     switch (dayTime) {
       case TimeOfDay.Morning:
-        return "https://images.pexels.com/photos/1125769/pexels-photo-1125769.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260";
+        return 'https://images.pexels.com/photos/1125769/pexels-photo-1125769.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260';
       case TimeOfDay.Afternoon:
-        return "https://images.pexels.com/photos/858241/pexels-photo-858241.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260";
+        return 'https://images.pexels.com/photos/858241/pexels-photo-858241.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260';
       case TimeOfDay.Evening:
-        return "https://images.pexels.com/photos/414144/pexels-photo-414144.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260";
+        return 'https://images.pexels.com/photos/414144/pexels-photo-414144.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260';
     }
   }
 
   onSettingsClicked(){
-    this.settingsPaneExpanded = this.settingsPaneExpanded == 'active' ? 'inactive' : 'active';
+    this.settingsPaneExpanded = this.settingsPaneExpanded === 'active' ? 'inactive' : 'active';
   }
-  
-  refreshPanes(event)
-  {
+
+  refreshPanes(event) {
     switch (event) {
-      case "birthday":
+      case 'birthday':
         this.birthdayComponent.refresh();
         break;
-      case "weather":
+      case 'weather':
         this.weatherComponent.refresh();
         break;
-      case "fx":
+      case 'fx':
         this.fxComponent.refresh();
         break;
-    }    
+    }
   }
 }
