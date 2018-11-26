@@ -15,7 +15,7 @@
       <label for="city">City</label>
       <type-ahead autocomplete="off" [(ngModel)]="homeCity" name="city" id="city" class="form-control form-control-sm" #city="ngModel" required
       [suggestions]="weatherCityList" complex="true"></type-ahead>
-      <div class="alert alert-danger" *ngIf="homeCity == null">
+      <div class="alert alert-danger" *ngIf="city.dirty && city.invalid">
         <div>Please select a city from the list.</div>
       </div>
     </div>
