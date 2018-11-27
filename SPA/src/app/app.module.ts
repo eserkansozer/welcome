@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { StorageServiceModule} from 'angular-webstorage-service';
 import { FormsModule } from '@angular/forms';
-// import { HttpModule} from '@angular/http';
 import { RouterModule} from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -29,7 +28,8 @@ import { WeatherService } from './Services/weather.service';
 import { AppErrorHandler } from './common/app-error-handler';
 import { TypeaheadModule } from 'ngx-type-ahead';
 import { WeatherCountryService } from './Services/weather-country.service';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { ErrorInterceptorProvider } from './common/AppErrorInterceptor';
 
 @NgModule({
   declarations: [// the view classes that belong to this module. Angular has three kinds of view classes: components, directives, and pipes.
@@ -70,6 +70,7 @@ import {HttpClientModule} from '@angular/common/http';
     WeatherCityService,
     WeatherCountryService,
     FxService,
+    ErrorInterceptorProvider,
     {provide: ErrorHandler, useClass: AppErrorHandler}// replacing standard error handler with custom global error handler
   ],
   // tslint:disable-next-line:max-line-length
