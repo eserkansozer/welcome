@@ -1,5 +1,5 @@
 <div class="settings-panel" [@expansionState]="settingsPaneExpanded">
-    <app-editor (editorRefresh)="refreshPanes($event)"></app-editor>    
+    <app-editor (editorRefresh)="refreshPanes($event)" *ngIf="settingsPaneExpanded==='active'"></app-editor>
 </div>
 <div class="main" [style.backgroundImage]="'url('+getDesktopImageUrl()+')'">
     <div class="cog-container">

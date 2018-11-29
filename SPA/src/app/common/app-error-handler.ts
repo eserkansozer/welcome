@@ -7,7 +7,7 @@ export class AppErrorHandler implements ErrorHandler {
       if (error instanceof AppError) {
         alert('An application error occured.');
       } else {
-        alert('A user error occured.');
+        alert('An unexpected error occured.');
       }
         console.log(error);
     }

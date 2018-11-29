@@ -1,9 +1,12 @@
-export class WeatherCountryRecord {    
-    name: string;
-    code: string;
-  
-    constructor(name: string, code: string) {
-      this.name = name;
-      this.code = code;
+export class WeatherCountryRecord {
+
+    constructor(public name: string, public code: string) {    }
+
+    get Code() {
+      return this.code;
+    }
+
+    get Name(){
+      return this.name;
     }
   }
