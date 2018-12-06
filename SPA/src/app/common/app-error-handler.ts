@@ -3,13 +3,15 @@ import { ErrorHandler } from '@angular/core';
 
 export class AppErrorHandler implements ErrorHandler {
 
+    constructor() { }
+
     handleError(error) {
       if (error instanceof AppError) {
-        alert('An application error occured.');
+        console.log('Application error: ' + error);
       } else {
-        alert('An unexpected error occured.');
+        console.log('Unexpected error: ' + error);
       }
-        console.log(error);
+
     }
 
 }

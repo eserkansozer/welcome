@@ -1,3 +1,4 @@
+import { AlertifyService } from './Services/alertify.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -71,6 +72,7 @@ import { ErrorInterceptorProvider } from './common/AppErrorInterceptor';
     WeatherCountryService,
     FxService,
     ErrorInterceptorProvider,
+    AlertifyService,
     {provide: ErrorHandler, useClass: AppErrorHandler}// replacing standard error handler with custom global error handler
   ],
   // tslint:disable-next-line:max-line-length

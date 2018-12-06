@@ -10,16 +10,16 @@ import { DaytimeService } from '../../Services/daytime.service';
 })
 export class BirthdayReminderComponent implements OnInit {
 
-  @Input() closable : boolean;
+  @Input() closable: boolean;
 
   private todaysBirthdays: Array<BirthDayRecord> = [];
 
-  constructor(private dayTimeService : DaytimeService, private birthdayService : BirthdayService) { }
+  constructor(private dayTimeService: DaytimeService, private birthdayService: BirthdayService) { }
 
   ngOnInit() {
     const today = this.dayTimeService.getDate();
-    const birthdays : Array<BirthDayRecord> = this.birthdayService.getBirthdays();
-    this.todaysBirthdays = birthdays.filter((birthday) => birthday.date == today);
+    const birthdays: Array<BirthDayRecord> = this.birthdayService.getBirthdays();
+    this.todaysBirthdays = birthdays.filter((birthday) => birthday.date === today);
   }
 
   refresh()

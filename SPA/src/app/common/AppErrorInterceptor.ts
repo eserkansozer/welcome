@@ -5,16 +5,18 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { BadInputError } from './bad-input-error';
 import { NotFoundError } from './not-found-error';
+import { AlertifyService } from '../Services/alertify.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppErrorInterceptor implements HttpInterceptor {
-  constructor() { }
+  constructor(private alertify: AlertifyService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(
       catchError(error => {
+        this.alertify.error('API error');
         if (error.status === 400) {
           return throwError(new BadInputError(error));
         }
