@@ -11,7 +11,8 @@ namespace WeatherCityService.Controllers
 {
   [Produces("application/json")]
   [Route("api/Countries")]
-  public class CountriesController : Controller
+  [ApiController]
+  public class CountriesController : ControllerBase//ControllerBase is good enough to inherit if you don't need view support
   {
     private readonly ICountriesRepository _countriesRepository;
 

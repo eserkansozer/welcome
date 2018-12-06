@@ -5,44 +5,70 @@ using Microsoft.Extensions.DependencyInjection;
 using WeatherCityDAL.Data;
 using Microsoft.EntityFrameworkCore;
 using WeatherCityDAL.Repositories;
+using System.Net;
+using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Http;
 
 namespace WeatherCityService
 {
-  public class Startup
-  {
-    public Startup(IConfiguration configuration)
+    public class Startup
     {
-      Configuration = configuration;
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        public IConfiguration Configuration { get; }
+
+        // This method gets called by the runtime. Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddDbContext<DataContext>(
+            options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString"),
+            builder => builder.MigrationsAssembly("WeatherCityServiceWeb"))
+            );
+
+            services.AddTransient<ICountriesRepository, CountriesSqlRepository>();
+            //services.AddSingleton<ICitiesRepository, CitiesCosmosDbRepository>();
+            services.AddSingleton<ICitiesRepository, CitiesSqlRepository>();
+
+            services.AddCors();
+            services.AddMvc();
+
+            services.AddTransient<Seed>();
+        }
+
+        // This method gets called by the runtime. Use this method to  configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, Seed seeder)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler(builder =>
+                {
+                    builder.Run(async context =>
+                    {
+                        context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                        var error = context.Features.Get<IExceptionHandlerFeature>();
+                        if(error != null)
+                        {
+                            context.Response.Headers.Add("Application-Error", error.Error.Message);
+                            context.Response.Headers.Add("Access-Control-Allow-Origin", "*");
+                        }
+                    });
+                });
+            }
+
+            //seeder.SeedCountries();
+            //seeder.SeedCities();
+
+            app.UseCors(builder => builder.WithOrigins("http://localhost:4200", "http://welcomehome.azurewebsites.net/"));
+
+            app.UseHttpsRedirection();
+            app.UseMvc();
+        }
     }
-
-    public IConfiguration Configuration { get; }
-
-    // This method gets called by the runtime. Use this method to add services to the container.
-    public void ConfigureServices(IServiceCollection services)
-    {
-      services.AddDbContext<DataContext>(
-      options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString"),
-      builder => builder.MigrationsAssembly("WeatherCityServiceWeb"))
-      );
-
-      services.AddTransient<ICountriesRepository, CountriesSqlRepository>();
-      services.AddSingleton<ICitiesRepository, CitiesCosmosDbRepository>();
-
-      services.AddCors();
-      services.AddMvc();
-    }
-
-    // This method gets called by the runtime. Use this method to  configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-    {
-      if (env.IsDevelopment())
-      {
-        app.UseDeveloperExceptionPage();
-      }
-
-      app.UseCors(builder => builder.WithOrigins("http://localhost:4200", "http://welcomehome.azurewebsites.net/"));
-
-      app.UseMvc();
-    }
-  }
 }

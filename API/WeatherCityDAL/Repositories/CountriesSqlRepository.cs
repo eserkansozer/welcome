@@ -20,12 +20,12 @@ namespace WeatherCityDAL.Repositories
 
     public IEnumerable<CountryModel> GetAllCountries()
     {
-      return _dataContext.WeatherCountry.OrderBy(c => c.Name).ToList();
+      return _dataContext.WeatherCountries.OrderBy(c => c.Name).ToList();
     }
 
     public async Task<IEnumerable<CountryModel>> GetAllCountriesAsync()
     {
-      return await _dataContext.WeatherCountry.OrderBy(c => c.Name).ToListAsync();
+      return await _dataContext.WeatherCountries.OrderBy(c => c.Name).ToListAsync();
     }
   }
 }

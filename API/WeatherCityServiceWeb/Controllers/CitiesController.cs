@@ -6,12 +6,15 @@ using Newtonsoft.Json.Linq;
 using WeatherCityDAL;
 using System.Linq;
 using WeatherCityDAL.Repositories;
+using System.ComponentModel.DataAnnotations;
+using System;
 
 namespace WeatherCityService.Controllers
 {
   [Produces("application/json")]
   [Route("api/Cities")]
-  public class CitiesController : Controller
+  [ApiController]
+  public class CitiesController : ControllerBase
   {
     private readonly ICitiesRepository _citiesRepository;
 
@@ -22,9 +25,14 @@ namespace WeatherCityService.Controllers
 
     //// GET: api/Cities/countryCode=GB
     [HttpGet]
-    public ActionResult Get([FromQuery]string countryCode)
+    public ActionResult Get(string countryCode)
     {
-      var cityList = _citiesRepository.GetCitiesByCountry(countryCode);
+        if (countryCode.Length != 2)
+        {
+            return BadRequest(new { error = "bad input"});
+        }
+
+        var cityList = _citiesRepository.GetCitiesByCountry(countryCode);
 
       if(cityList == null || cityList.ToList().Count == 0)
       {
