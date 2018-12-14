@@ -61,8 +61,9 @@ import { ErrorInterceptorProvider } from './common/AppErrorInterceptor';
     )
   ],
   // exports: the subset of declarations that should be visible and usable in the component templates of other modules.
-  // tslint:disable-next-line:max-line-length
-  providers: [// creators of services that this module contributes to the global collection of services; they become accessible in all parts of the app.
+   providers: [
+    // creators of services that this module contributes to the global collection of services;
+    // they become accessible in all parts of the app.
     LocalStorageService,
     DaytimeService,
     BirthdayService,
@@ -75,7 +76,8 @@ import { ErrorInterceptorProvider } from './common/AppErrorInterceptor';
     AlertifyService,
     {provide: ErrorHandler, useClass: AppErrorHandler}// replacing standard error handler with custom global error handler
   ],
-  // tslint:disable-next-line:max-line-length
-  bootstrap: [AppComponent]// the main application view, called the root component, that hosts all other app views. Only the root module should set this bootstrap property.
+  bootstrap: [AppComponent]
+  // the main application view, called the root component, that hosts all other app views.
+  // Only the root module should set this bootstrap property.
 })
 export class AppModule { }

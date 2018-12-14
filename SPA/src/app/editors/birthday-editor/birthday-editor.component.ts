@@ -1,7 +1,8 @@
 import { BirthdayService } from './../../Services/birthday.service';
 import { BirthDayRecord } from './../../Models/BirthDayRecord';
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, ViewChild } from '@angular/core';
 import { timeout } from 'q';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-birthday-editor',
@@ -12,6 +13,7 @@ export class BirthdayEditorComponent implements OnInit {
 
   @Input() mode : string;
   @Output() refresh = new EventEmitter<string>();
+  @ViewChild('f') addForm: NgForm; // An ngForm may be added as child view as in here and it's method's can be used
 
   allBirthDays : Array<BirthDayRecord>;
   bDayOnEdit : BirthDayRecord;
@@ -26,6 +28,7 @@ export class BirthdayEditorComponent implements OnInit {
     this.birthdayService.addBirthday(newBday);
     this.allBirthDays = this.birthdayService.getBirthdays();
     this.refresh.emit("birthday");
+    this.addForm.reset(); // form is reset here
   }
 
   onDelete(bid: Number)

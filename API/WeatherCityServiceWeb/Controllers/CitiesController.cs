@@ -23,13 +23,14 @@ namespace WeatherCityService.Controllers
       _citiesRepository = citiesRepository;
     }
 
+    //[HttpGet("{countryCode}")] for api/cities/GB
     //// GET: api/Cities/countryCode=GB
     [HttpGet]
     public ActionResult Get(string countryCode)
     {
         if (countryCode.Length != 2)
         {
-            return BadRequest(new { error = "bad input"});
+            return BadRequest(new { error = "Bad input!"});
         }
 
         var cityList = _citiesRepository.GetCitiesByCountry(countryCode);
