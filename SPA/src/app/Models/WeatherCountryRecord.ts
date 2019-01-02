@@ -1,12 +1,12 @@
 export class WeatherCountryRecord {
 
-    constructor(public name: string, public code: string) {    }
+    constructor(private name: string, private code: string) {    }
 
     get Code() {
       return this.code;
     }
 
-    get Name(){
+    get Name() {
       return this.name;
     }
   }

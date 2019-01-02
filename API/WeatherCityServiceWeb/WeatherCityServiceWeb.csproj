@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>3cfeb29e-bd6a-4dd7-b9df-8750e46bea4a</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
     <Content Remove="appsettings.Development.json" />

@@ -7,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 using WeatherCityDAL.Repositories;
 using System.Net;
 using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.Http;
 
 namespace WeatherCityService
 {
@@ -28,9 +27,11 @@ namespace WeatherCityService
             builder => builder.MigrationsAssembly("WeatherCityServiceWeb"))
             );
 
-            services.AddTransient<ICountriesRepository, CountriesSqlRepository>();
-            //services.AddSingleton<ICitiesRepository, CitiesCosmosDbRepository>();
+            services.AddTransient<ICountriesRepository, CountriesSqlRepository>();            
             services.AddSingleton<ICitiesRepository, CitiesSqlRepository>();
+
+            //services.Configure<MyConfigurationSectionClass>(Configuration.GetSection("MyCustomSection")); 
+            //This is how to define a custom section and map to your object
 
             services.AddCors();
             services.AddMvc();
@@ -49,11 +50,11 @@ namespace WeatherCityService
             {
                 app.UseExceptionHandler(builder =>
                 {
-                    builder.Run(async context =>
+                    builder.Run(context =>
                     {
                         context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                         var error = context.Features.Get<IExceptionHandlerFeature>();
-                        if(error != null)
+                        if (error != null)
                         {
                             context.Response.Headers.Add("Application-Error", error.Error.Message);
                             context.Response.Headers.Add("Access-Control-Allow-Origin", "*");

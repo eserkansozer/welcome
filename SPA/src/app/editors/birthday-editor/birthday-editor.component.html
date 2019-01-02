@@ -14,7 +14,7 @@
 
       <div class="col">
         <label for="category">Date</label>
-        <input [(ngModel)]="bDayOnEdit.date"  #date="ngModel" type="date" class="form-control form-control-sm" id="date" name="date" required />
+        <input [(ngModel)]="bDayOnEdit.date" #date="ngModel" type="date" class="form-control form-control-sm" id="date" name="date" required />
         <div class="alert alert-danger" *ngIf="date.touched && !date.valid">
           <div *ngIf="date.errors.required">Date field is required.</div>
         </div>
@@ -33,8 +33,8 @@
 <div class="form-container" *ngIf="mode == 'list'">
   <table class="table table-striped">
     <tr *ngFor="let bDay of allBirthDays">
-      <td>{{bDay.name}}</td>              
-      <td>{{bDay.date | date: locale:'en-UK'}}</td>
+      <td>{{bDay.name}}</td>
+      <td>{{bDay.date | date:locale:'en-UK'}}</td>
       <td style="float: right"><button (click)="onEdit(bDay.id)"><span class="fas fa-edit"></span> </button><button (click)="onDelete(bDay.id)"><span class="fas fa-minus-circle"></span> </button></td>
     </tr>
   </table>

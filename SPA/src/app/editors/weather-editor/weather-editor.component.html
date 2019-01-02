@@ -5,7 +5,7 @@
       <select [(ngModel)]="homeCountryCode" #country="ngModel" name="country" id="country" class="form-control form-control-sm"
         (change)="onCountrySelect()" required>
         <option value="" selected>Please select</option>
-        <option *ngFor="let w of weatherCountryList" [value]="w.code">{{w.name}}</option>
+        <option *ngFor="let w of weatherCountryList" [value]="w.Code">{{w.Name}}</option>
       </select>
       <div class="alert alert-danger" *ngIf="country.dirty && !country.valid">
         <div *ngIf="country.errors.required">Country field is required.</div>
