@@ -53,7 +53,7 @@
 
         <div class="col">
           <label for="category">Date</label>
-          <input ngModel #date="ngModel" type="date" class="form-control  form-control-sm" id="date" name="date" required />
+          <input ngModel bsDatepicker [bsConfig]="{containerClass: 'theme-blue', dateInputFormat: 'DD/MM/YYYY'}" #date="ngModel" type="text" class="form-control  form-control-sm" id="date" name="date" required autocomplete="off" />
           <div class="alert alert-danger" *ngIf="date.touched && !date.valid">
             <div *ngIf="date.errors.required">Date field is required.</div>
           </div>

@@ -7,6 +7,7 @@ import { RouterModule} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 import { TypeaheadModule } from 'ngx-type-ahead';
+import { BsDatepickerModule } from 'ngx-bootstrap';
 import { StorageServiceModule} from 'angular-webstorage-service';
 
 import { AppComponent } from './app.component';
@@ -56,6 +57,7 @@ import { ErrorInterceptorProvider } from './common/AppErrorInterceptor';
     HttpClientModule,
     BrowserAnimationsModule,
     TypeaheadModule,
+    BsDatepickerModule.forRoot(),
     RouterModule.forRoot([
       {path: '', component: MainComponent},
       {path: 'about', component: CreditsComponent},

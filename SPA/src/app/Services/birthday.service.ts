@@ -25,6 +25,7 @@ export class BirthdayService {
     } else {
       newBDay.id =  Math.max.apply(Math, birthdays.map(function(b) { return b.id; })) + 1 ;
     }
+    newBDay.date = new Date(newBDay.date.toISOString().split('T')[0]);
     birthdays.push(newBDay);
     this.storageService.set(this.KEY, birthdays);
   }
@@ -39,7 +40,7 @@ export class BirthdayService {
     const birthdays = this.storageService.get(this.KEY) as Array<BirthDayRecord>;
     const foundBDay = birthdays.find(bDay => bDay.id === bDayToEdit.id);
     foundBDay.name = bDayToEdit.name;
-    foundBDay.date = bDayToEdit.date;
+    foundBDay.date = new Date(bDayToEdit.date.toISOString().split('T')[0]);
     this.storageService.set(this.KEY, birthdays);
   }
 

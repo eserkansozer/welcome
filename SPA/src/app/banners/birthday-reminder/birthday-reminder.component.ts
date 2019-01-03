@@ -19,7 +19,7 @@ export class BirthdayReminderComponent implements OnInit {
   ngOnInit() {
     const today = this.dayTimeService.getDate();
     const birthdays: Array<BirthDayRecord> = this.birthdayService.getBirthdays();
-    this.todaysBirthdays = birthdays.filter((birthday) => birthday.date === today);
+    this.todaysBirthdays = birthdays.filter((birthday) => birthday.date.toString() === today);
   }
 
   refresh()
