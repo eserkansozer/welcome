@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 
 
 @Injectable()
-export class WeatherCityService extends DataApiService{
+export class WeatherCityService extends DataApiService {
 
   constructor(http: HttpClient) {
     super(environment.wcServiceUrl, http);

@@ -2,11 +2,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { StorageServiceModule} from 'angular-webstorage-service';
 import { FormsModule } from '@angular/forms';
 import { RouterModule} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+
 import { TypeaheadModule } from 'ngx-type-ahead';
+import { StorageServiceModule} from 'angular-webstorage-service';
 
 import { AppComponent } from './app.component';
 import { TitleComponent } from './title/title.component';
