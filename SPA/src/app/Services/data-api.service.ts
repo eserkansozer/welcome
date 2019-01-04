@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 
 
 @Injectable()
@@ -11,12 +12,12 @@ export class DataApiService {
   }
 
   getByParameters(parameters: Array<{key: string, value: string}>) {
-    let queryString  = '?';
+    let httpParams  =  new HttpParams();
     parameters.forEach(parameter => {
-      queryString += parameter.key + '=' + parameter.value + '&';
+      httpParams = httpParams.append(parameter.key, parameter.value);
     });
 
-    return this.http.get(this.url + queryString);
+    return this.http.get(this.url, {params: httpParams});
   }
 
   create(resource) {
