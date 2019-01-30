@@ -35,7 +35,7 @@
     <tr *ngFor="let bDay of allBirthDays">
       <td>{{bDay.name}}</td>
       <td>{{bDay.date | date:locale:'en-UK'}}</td>
-      <td style="float: right"><button (click)="onEdit(bDay.id)"><span class="fas fa-edit"></span> </button><button (click)="onDelete(bDay.id)"><span class="fas fa-minus-circle"></span> </button></td>
+      <td style="float: right"><button (click)="onEdit(bDay.id)"><span class="fa fa-edit"></span> </button><button (click)="onDelete(bDay.id)"><span class="fa fa-minus-circle"></span> </button></td>
     </tr>
   </table>
 
