@@ -12,7 +12,7 @@ export class BirthdayReminderComponent implements OnInit {
 
   @Input() closable: boolean;
 
-  private todaysBirthdays: Array<BirthDayRecord> = [];
+  public todaysBirthdays: Array<BirthDayRecord> = [];
 
   constructor(private dayTimeService: DaytimeService, private birthdayService: BirthdayService) { }
 

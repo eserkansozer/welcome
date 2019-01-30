@@ -7,7 +7,8 @@ import { environment } from '../../environments/environment';
 export class WeatherService extends DataApiService {
 
   constructor(http: HttpClient) {
-    super('https://api.openweathermap.org/data/2.5/weather', http);
+    super(http);
+    this.url = 'https://api.openweathermap.org/data/2.5/weather';
    }
 
    getWeather(cityId: number) {

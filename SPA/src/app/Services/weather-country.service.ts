@@ -7,7 +7,8 @@ import { environment } from 'src/environments/environment';
 export class WeatherCountryService extends DataApiService {
 
   constructor(http: HttpClient) {
-    super(environment.wcoServiceUrl, http);
+    super(http);
+    this.url = environment.wcoServiceUrl;
    }
 
 }

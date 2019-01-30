@@ -8,7 +8,8 @@ import { environment } from 'src/environments/environment';
 export class FxService extends DataApiService{
 
   constructor(http: HttpClient) {
-    super('http://data.fixer.io/api/latest', http);
+    super(http);
+    this.url = 'http://data.fixer.io/api/latest';
    }
 
    getFX() {

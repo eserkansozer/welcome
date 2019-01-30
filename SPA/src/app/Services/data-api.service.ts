@@ -5,7 +5,10 @@ import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 
 @Injectable()
 export class DataApiService {
-  constructor(private url: string, private http: HttpClient) { }
+
+  url: string;
+
+  constructor(private http: HttpClient) { }
 
   getAll() {
     return this.http.get(this.url);
