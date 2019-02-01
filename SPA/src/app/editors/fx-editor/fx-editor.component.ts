@@ -16,11 +16,11 @@ export class FxEditorComponent implements OnInit {
   constructor(private storageService: LocalStorageService) { }
 
   ngOnInit() {
-    this.fxOnEdit = this.storageService.get('fx') as FxRecord  || new FxRecord("","",0);
+    this.fxOnEdit = this.storageService.get('fx') as FxRecord  || new FxRecord('', '', 0);
   }
 
-  onSave(){
+  onSave() {
     this.storageService.set('fx', this.fxOnEdit);
-    this.refresh.emit("fx");
+    this.refresh.emit('fx');
   }
 }

@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class BirthdayService {
-  private KEY = 'birthdays';
+  private readonly KEY = 'birthdays';
   constructor(private storageService: LocalStorageService) { }
 
   getBirthdays(): Array<BirthDayRecord> {

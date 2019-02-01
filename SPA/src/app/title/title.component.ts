@@ -12,29 +12,28 @@ export class TitleComponent {
   constructor(private dayTimeService: DaytimeService) { }
 
   getTitleClass() {
-    let dayTime = this.dayTimeService.getDayTime();
+    const dayTime = this.dayTimeService.getDayTime();
 
     switch (dayTime) {
       case TimeOfDay.Morning:
-        return "morning";
+        return 'morning';
       case TimeOfDay.Afternoon:
-        return "afternoon";
+        return 'afternoon';
       case TimeOfDay.Evening:
-        return "evening"
+        return 'evening';
     }
   }
 
   getWelcomeMessage() {
-    
-    let dayTime = this.dayTimeService.getDayTime();
+    const dayTime = this.dayTimeService.getDayTime();
 
     switch (dayTime) {
       case TimeOfDay.Morning:
-        return "Good morning!";
+        return 'Good morning!';
       case TimeOfDay.Afternoon:
-        return "Good afternoon!";
+        return 'Good afternoon!';
       case TimeOfDay.Evening:
-        return "Good evening!"
+        return 'Good evening!';
     }
   }
 }

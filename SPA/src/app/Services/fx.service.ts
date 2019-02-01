@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 
 
 @Injectable()
-export class FxService extends DataApiService{
+export class FxService extends DataApiService {
 
   constructor(http: HttpClient) {
     super(http);
@@ -13,7 +13,7 @@ export class FxService extends DataApiService{
    }
 
    getFX() {
-     const parameters : Array<{key:string, value: any}> = [];
+     const parameters: Array<{key: string, value: any}> = [];
      parameters.push({key: 'access_key', value: environment.fxApiId});
 
      return this.getByParameters(parameters);
