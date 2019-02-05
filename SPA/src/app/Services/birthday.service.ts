@@ -15,6 +15,7 @@ export class BirthdayService {
   getBirthday(id: Number): BirthDayRecord {
     const birthdays = this.storageService.get(this.KEY) as Array<BirthDayRecord>;
     const foundBDay = birthdays.find(bDay => bDay.id === id);
+    foundBDay.date = new Date(foundBDay.date);
     return foundBDay;
   }
 
