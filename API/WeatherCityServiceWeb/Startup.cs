@@ -65,8 +65,8 @@ namespace WeatherCityService
                 });
             }
 
-            //seeder.SeedCountries();
-            //seeder.SeedCities();
+            seeder.SeedCountries();
+            seeder.SeedCities();
 
             app.UseCors(builder => builder.WithOrigins("http://localhost:4200", "http://welcomehome.azurewebsites.net/"));
 
