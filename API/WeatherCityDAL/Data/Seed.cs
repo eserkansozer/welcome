@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using WeatherCityDAL.Models;
 
@@ -16,6 +17,11 @@ namespace WeatherCityDAL.Data
 
         public void SeedCities()
         {
+            if (_context.WeatherCities.Any())
+            {
+                return;
+            }
+
             //_context.WeatherCities.RemoveRange(_context.WeatherCities);
             var cityData = System.IO.File.ReadAllText("../WeatherCityDAL/Data/city.list.json");
             var cities = JsonConvert.DeserializeObject<List<CityModel>>(cityData);
@@ -29,6 +35,11 @@ namespace WeatherCityDAL.Data
 
         public void SeedCountries()
         {
+            if (_context.WeatherCountries.Any())
+            {
+                return;
+            }
+
             //_context.WeatherCountries.RemoveRange(_context.WeatherCountries);
             var countryData = System.IO.File.ReadAllText("../WeatherCityDAL/Data/country.codes.json");
             var countries = JsonConvert.DeserializeObject<List<CountryModel>>(countryData);
