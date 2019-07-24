@@ -59,7 +59,7 @@ namespace WeatherCityService
                             context.Response.Headers.Add("Application-Error", error.Error.Message);
                             context.Response.Headers.Add("Access-Control-Allow-Origin", "*");
                         }
-
+                         
                         return null;
                     });
                 });
